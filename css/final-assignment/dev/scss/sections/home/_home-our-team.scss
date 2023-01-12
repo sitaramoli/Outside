@@ -1,0 +1,10 @@
+.home-our-team{
+    padding: 2.4rem;
+
+    @include respond-above(md){
+        padding: 8rem 4rem;
+    }
+    @include respond-above(xl){
+        padding: 12rem;
+    }
+}

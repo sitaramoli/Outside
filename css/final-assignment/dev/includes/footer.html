@@ -9,7 +9,7 @@
         <div class="sitemap row">
 
             <div class="sitemap__item col-xs-12 col-md-6 col-xl-3">
-                <h2 class="sitemap__item__title">About us</h2>
+                <h6 class="sitemap__item__title h6">About us</h6>
                 <ul class="sitemap__item__list">
                     <li><a href="#">Lorem ipsum dolor sit amet</a></li>
                     <li><a href="#">Lorem ipsum dolor</a></li>
@@ -17,7 +17,7 @@
                 </ul>
             </div>
             <div class="sitemap__item col-xs-12 col-md-6 col-xl-3">
-                <h2 class="sitemap__item__title">Our team</h2>
+                <h6 class="sitemap__item__title h6">Our team</h6>
                 <ul class="sitemap__item__list">
                     <li><a href="#">Lorem ipsum dolor</a></li>
                     <li><a href="#">Lorem ipsum dolor</a></li>
@@ -25,7 +25,7 @@
                 </ul>
             </div>
             <div class="sitemap__item col-xs-12 col-md-6 col-xl-3">
-                <h2 class="sitemap__item__title">Who we are</h2>
+                <h6 class="sitemap__item__title h6">Who we are</h6>
                 <ul class="sitemap__item__list">
                     <li><a href="#">Lorem ipsum dolor</a></li>
                     <li><a href="#">Lorem ipsum dolor</a></li>
@@ -33,7 +33,7 @@
                 </ul>
             </div>
             <div class="sitemap__item col-xs-12 col-md-6 col-xl-3">
-                <h2 class="sitemap__item__title">Resources</h2>
+                <h6 class="sitemap__item__title h6">Resources</h6>
                 <ul class="sitemap__item__list">
                     <li><a href="#">Lorem lst</a></li>
                     <li><a href="#">Lorem</a></li>
@@ -47,7 +47,7 @@
         <!-- contact -->
         <div class="contact row">
             <div class="col-xs-12 col-xl-3">
-                <h2 class="contact__title">Contact</h2>
+                <h6 class="contact__title h6">Contact</h6>
                 <ul class="contact__list">
                     <li><a href="#">Contact form</a></li>
                     <li><a href="#">allowed@test.com</a></li>
@@ -57,7 +57,11 @@
                 <p class="contact__newsletter">Sign up for our newsletter:</p>
                 <div class="contact__form">
                     <input type="email" name="email" id="email" placeholder="Email address">
-                    <button class="contact__form__submit-btn button button--sky">Submit<i class="icon-arrow-right"></i></button>
+                    @@include('modules/buttons/right-arrow-button.html',{
+                        'btnColor':'button--sky',
+                        'border':'b-white',
+                        'btnText':'Submit'
+                    })
                 </div>
             </div>
         </div>

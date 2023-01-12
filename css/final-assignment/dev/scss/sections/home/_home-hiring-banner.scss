@@ -1,16 +1,9 @@
-.hiring-banner{
+.home-hiring-banner{
     padding: 4rem 2.4rem;
     @include respond-above(md){
         padding: 8rem 4rem;
     }
     @include respond-above(xl){
         padding: 8rem;
-    }
-
-    .button{
-        border: none;
-    }
-    .button i{
-        margin-left: .8rem;
     }
 }

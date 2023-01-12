@@ -1,35 +1,29 @@
-.home-about-us{
+.home-about-us {
+    padding: 4rem 2.4rem;
     display: flex;
     gap: 4rem;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 4rem 2.4rem;
-    @include respond-above(md){
+    align-items: center;
+    @include respond-above(md) {
         padding: 8rem 4rem;
         flex-direction: row;
     }
-    @include respond-above(xl){
+    @include respond-above(xl) {
         padding: 12rem 8rem;
         gap: 15rem;
     }
-    &__left{
+    &__left {
         display: flex;
         flex-direction: column;
         gap: 4rem;
-        &__button{
-            align-self: flex-start;
-            i{
-                margin-left: .8rem;
-            }
-        }
     }
-    &__right{
+    &__right {
         padding: 2.4rem;
         display: flex;
         flex-direction: column;
         gap: 1.6rem;
         &__video{
-            video{
+            video {
                 max-width: 100%;
                 height: auto;
             }

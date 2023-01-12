@@ -62,16 +62,27 @@ h5,
     }
 }
 
-h6,
-.h6 {
+// responsive h6
+.r-h6{
+    @extend .m-h6;
+    @include media-breakpoint-up(xl){
+        font-size: 1.8rem;
+    }
+}
+
+// mobile h6
+.m-h6 {
     font-size: 1.6rem;
     font-weight: 600;
     letter-spacing: 10%;
     font-family: "Inter", sans-serif;
     text-transform: uppercase;
-    @include media-breakpoint-up(xl) {
-        font-size: 1.8rem;
-    }
+}
+
+// standard h6
+.h6{
+    @extend .m-h6;
+    font-size: 1.8rem;
 }
 
 .body-xl{

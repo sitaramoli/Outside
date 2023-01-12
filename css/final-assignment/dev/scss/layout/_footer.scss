@@ -31,11 +31,6 @@
     // sitemap section
     .sitemap {
         &__item {
-            &__title {
-                font-size: 1.8rem;
-                font-weight: 600;
-                letter-spacing: 10%;
-            }
             &__list {
                 display: none;
                 @include respond-above(xl) {
@@ -57,11 +52,6 @@
 
     // contact section
     .contact {
-        &__title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            letter-spacing: 10%;
-        }
         &__list {
             display: none;
             @include respond-above(xl) {
@@ -104,12 +94,6 @@
                     font-size: 1.8rem;
                     font-style: italic;
                     color: $white;
-                }
-            }
-            &__submit-btn {
-                align-self: flex-start;
-                & i {
-                    margin-left: 0.8rem;
                 }
             }
         }

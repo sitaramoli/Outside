@@ -9,11 +9,10 @@
     font-family: "Inter", sans-serif;
     &--light {
         color: $space;
-        border: .2rem solid $space;
         background-color: $white;
         &:hover,:active,:focus{
             color: $teal;
-            border: .2rem solid $teal;
+
         }
         &:disabled{
             color: $peach;
@@ -32,11 +31,29 @@
     }
     &--sky{
         color: $white;
-        border: .2rem solid $white;
         background-color: $sky;
         &:hover,:active,:focus{
             color: $sky;
             background-color: $white;
         }
     }
+}
+.right-arrow-button{
+    align-self: flex-start;
+    @extend .button;
+    i{
+        margin-left: .8rem;
+    }
+}
+.b-none{
+    border: none;
+}
+.b-black{
+    border: .2rem solid $space;
+    &:hover,:active,:focus{
+        border: .2rem solid $teal;
+    }
+}
+.b-white{
+    border: .2rem solid $white;
 }

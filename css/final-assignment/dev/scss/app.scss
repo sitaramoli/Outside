@@ -90,10 +90,10 @@
 @import "layout/main";
 @import "layout/post";
 @import "layout/hero";
-@import "sections/hiring-banner";
-@import "sections/home-hero";
-@import "sections/home-about-us";
-
+@import "sections/home/home-hiring-banner";
+@import "sections/home/home-hero";
+@import "sections/home/home-about-us";
+// @import "sections/home/home-more-info";
 
 // 11. Cards
-@import 'cards/card-a01';
+@import 'cards/card-h01';

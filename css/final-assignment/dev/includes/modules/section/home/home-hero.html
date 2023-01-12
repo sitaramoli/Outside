@@ -1,10 +1,10 @@
 <section class="home-hero">
     <div class="home-hero__upper">
         <figure class="home-hero__upper__left">
-            <img src="../../../images/home/hero-1.png" alt="hero-1" />
+            <img src="../../../../images/home/hero-1.png" alt="hero-1" />
         </figure>
         <figure class="home-hero__upper__right">
-            <img src="../../../images/home/hero-2.png" alt="hero-2" />
+            <img src="../../../../images/home/hero-2.png" alt="hero-2" />
         </figure>
     </div>
     <div class="home-hero__lower">
@@ -16,14 +16,17 @@
                     Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
                     classical Latin literature from 45 BC, making it over 2000 years old.
                 </p>
-                <button class="home-hero__lower__left__content__button button button--light">
-                    Contatc Us
-                    <i class="icon-arrow-right"></i>
-                </button>
+                <div class="home-hero__lower__left__content__button">
+                    @@include('../../buttons/right-arrow-button.html',{
+                        'btnColor':'button--light',
+                        'border': 'b-black',
+                        'btnText':'Contact Us'
+                    })
+                </div>
             </div>
         </div>
         <figure class="home-hero__lower__right">
-            <img src="../../../images/home/hero-3.png" alt="hero-3" />
+            <img src="../../../../images/home/hero-3.png" alt="hero-3" />
         </figure>
     </div>
 </section>
