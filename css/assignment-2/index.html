@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 2</title>
+    <style>
+        code {
+            color: crimson;
+        }
+        div {
+            width: 50%;
+            border: 2px solid black;
+        }
+        p.padding-inline {
+            padding-inline: 10px 25px;
+            writing-mode: horizontal-tb;
+        }
+        p.padding-block {
+            padding-block: 50px 20px;
+            writing-mode: horizontal-tb;
+        }
+        p.padding-inline-end {
+            padding-inline-end: 50px;
+            writing-mode: horizontal-tb;
+            direction: ltr;
+        }
+        p.padding-inline-start {
+            padding-inline-start: 50px;
+            writing-mode: horizontal-tb;
+        }
+        p.padding-top {
+            padding-top: 50px;
+            writing-mode: vertical-lr;
+        }
+        p.padding-right {
+            padding-right: 50px;
+            writing-mode: horizontal-tb;
+            direction: rtl;
+        }
+    </style>
+</head>
+<body>
+    <h2>padding-inline</h2>
+    <p>
+        It defines the logical inline start and end padding of an element,which maps to physical padding
+        properties depending on the element's writing mode, directionality, and text orientation.
+        <p>
+            <code>
+                padding-inline: 10px 25px;<br>
+                writing-mode: horizontal-tb; 
+            </code>
+            <div>
+                <p class="padding-inline">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam magni 
+                    eveniet quas nesciunt aliquam voluptatem autem. Ipsa veniam optio necessitatibus 
+                    cum, perferendis eaque. Inventore dolores accusamus debitis repellendus nobis.
+                </p>
+            </div>
+        </p>
+    </p>
+    <h2>padding-block</h2>
+    <p>
+        It defines the logical block start and end padding of an element, which maps to
+         physical padding properties depending on the element's writing mode, directionality, and text orientation.
+         <p>
+            <code>
+                padding-block: 50px 20px;<br>
+                writing-mode: horizontal-tb;
+            </code>
+            <div>
+                <p class="padding-block">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam magni 
+                    eveniet quas nesciunt aliquam voluptatem autem. Ipsa veniam optio necessitatibus 
+                    cum, perferendis eaque. Inventore dolores accusamus debitis repellendus nobis.
+                </p>
+            </div>
+         </p>
+    </p>
+    <h2>padding-inline-end</h2>
+    <p>
+        The padding-inline-end CSS property defines the logical inline end padding of an element, 
+        which maps to a physical padding depending on the element's writing mode, directionality, 
+        and text orientation.
+         <p>
+            <code>
+                padding-inline-end: 50px;<br>
+                writing-mode: horizontal-tb;
+            </code>
+            <div>
+                <p class="padding-inline-end">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam magni 
+                    eveniet quas nesciunt aliquam voluptatem autem. Ipsa veniam optio necessitatibus 
+                    cum, perferendis eaque. Inventore dolores accusamus debitis repellendus nobis.
+                </p>
+            </div>
+         </p>
+    </p>
+    <h2>padding-inline-start</h2>
+    <p>
+        The padding-inline-end CSS property defines the logical inline start padding of an element, 
+        which maps to a physical padding depending on the element's writing mode, directionality, 
+        and text orientation.
+         <p>
+            <code>
+                padding-inline-start: 50px;<br>
+                writing-mode: horizontal-tb;
+            </code>
+            <div>
+                <p class="padding-inline-start">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam magni 
+                    eveniet quas nesciunt aliquam voluptatem autem. Ipsa veniam optio necessitatibus 
+                    cum, perferendis eaque. Inventore dolores accusamus debitis repellendus nobis.
+                </p>
+            </div>
+         </p>
+    </p>
+    <h2>padding-top</h2>
+    <p>
+        It sets the height of padding area on the top of an element.
+        padding-top is independent of writing mode but
+        padding-block behaves like padding-top and padding-bottom in a 
+        default horizontal writing mode, but it behaves like padding-left 
+        and padding-right in a vertical writing mode.
+        <p>
+            <code>
+                padding-top: 50px;<br>
+                writing-mode: vertical-lr;
+            </code>
+            <div>
+                <p class="padding-top">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+            </div>
+         </p>
+    </p>
+    <h2>padding-right</h2>
+    <p>
+        It sets the width of padding area on the right of an element.
+        padding-right is independent of writing mode but
+        padding-inline behaves like padding-left and padding-right in a 
+        default horizontal writing mode, but it behaves like padding-top 
+        and padding-bottom in a vertical writing mode.
+        <p>
+            <code>
+                padding-right: 50px;<br>
+                writing-mode: horizontal-tb;<br>
+                direction: rtl;
+            </code>
+            <div>
+                <p class="padding-right">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam magni 
+                    eveniet quas nesciunt aliquam voluptatem autem. Ipsa veniam optio necessitatibus 
+                    cum, perferendis eaque. Inventore dolores accusamus debitis repellendus nobis.
+                </p>
+            </div>
+         </p>
+    </p>
+</body>
+</html>

@@ -1,0 +1,115 @@
+@import "base.scss";
+@import "components.scss";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: $font-family;
+}
+
+.wrapper {
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    .header {
+        @include header;
+    }
+    .typography {
+        display: flex;
+        gap: 60px;
+        flex-direction: column;
+        &__title {
+            @include title;
+        }
+        &__lists {
+            display: flex;
+            gap: 40px;
+            flex-direction: column;
+            &__item {
+                display: flex;
+                gap: 100px;
+                &__name-section {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    &__name {
+                        @include typography(20px, 400, 100%);
+                    }
+                    &__size {
+                        @include typography(14px, 400, 100%);
+                        color: $grey;
+                    }
+                    &__line-height {
+                        @include typography(14px, 400, 100%);
+                        color: $grey;
+                    }
+                }
+                &__para {
+                    &--h1 {
+                        @include h1;
+                    }
+                    &--h2 {
+                        @include h2;
+                    }
+                    &--body-1 {
+                        @include body-1;
+                    }
+                    &--body-2 {
+                        @include body-2;
+                    }
+                }
+            }
+        }
+    }
+
+    // color section
+    .colors {
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+        &__title {
+            @include title;
+        }
+        &__lists {
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+        }
+    }
+
+    // icons section
+    .icons {
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+        &__title {
+            @include title;
+        }
+        .icons-container {
+            padding: 8px;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+    }
+
+    // effects section
+    .effects {
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+        &__title {
+            @include title;
+        }
+        &__lists {
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+        }
+    }
+}

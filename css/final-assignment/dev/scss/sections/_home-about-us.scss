@@ -1,0 +1,38 @@
+.home-about-us{
+    display: flex;
+    gap: 4rem;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 4rem 2.4rem;
+    @include respond-above(md){
+        padding: 8rem 4rem;
+        flex-direction: row;
+    }
+    @include respond-above(xl){
+        padding: 12rem 8rem;
+        gap: 15rem;
+    }
+    &__left{
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+        &__button{
+            align-self: flex-start;
+            i{
+                margin-left: .8rem;
+            }
+        }
+    }
+    &__right{
+        padding: 2.4rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        &__video{
+            video{
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    }
+}

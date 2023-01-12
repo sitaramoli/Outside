@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <title>Form</title>
+    <style>
+        body {
+            font-family: "Montserrat" sans-serif;
+        }
+        nav > a{
+            text-decoration: none;
+            margin: 5px;
+
+        }
+        div{
+            display: flex;
+            justify-content: space-between;
+            max-width: 40%;
+            margin-top: 30px;
+        }
+        textarea{
+            resize: none;
+        }
+        .subscribe{
+            display: flex;
+            justify-content: flex-end;
+        }
+        button{
+            display: flex;
+            justify-content: flex-end;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h3>HTML Learning</h3>
+    </header>
+    <nav>
+        <a href="#" target="_self">Home</a>
+        <a href="#" target="_self">About Us</a>
+        <a href="#" target="_self">Support</a>
+        <a href="#" target="_self">Gallery</a>
+        <a href="#" target="_self">Contact</a>
+    </nav>
+    <hr>
+    <main>
+        <header>
+            <h1>HTML Forms</h1>
+        </header>
+        <hr>
+        <header>
+            <h3>Personal Details</h3>
+        </header>
+        <form action="#" method="get" name="personal_details">
+            <div>Name <input type="text" name="name" id="name" required></div>
+           <div> Email <input type="email" name="email" id="email" required></div>
+           <div> Location <input type="text" name="location" id="location" required></div>
+            <div>Gender <span><input type="radio" name="gender" id="gender" value="male" required>Male
+                <input type="radio" name="gender" id="gender" value="female">Female</span></div>
+           <div> Birthday <input type="date" name="birthday" id="birthday" required></div>
+            <div>Country <select name="country" id="country" required>
+                <option value="">Select a country</option>
+                <option value="nepal">Nepal</option>
+                <option value="canada">Canada</option>
+                <option value="america">USA</option>
+            </select></div>
+            <div>Other Information <textarea name="other" id="other" cols="30" rows="10" required></textarea></div>
+            <div class="subscribe"><input type="checkbox" name="subscribe" id="subscribe">I want to receive the newsletter</div>
+            <div class="subscribe"><button type="submit">SUBMIT</button></div>
+        </form>
+    </main>
+    <hr>
+    <footer>
+        &copy;Copyright. End of my first project
+    </footer>
+</body>
+
+</html>

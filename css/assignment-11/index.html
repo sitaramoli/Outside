@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 11</title>
+    <style>
+        
+        .box {
+            height: 100px;
+            width: 100px;
+            margin: 0 auto;
+            background-color: pink;
+            animation-name: gif;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+        }
+        @keyframes gif {
+            
+            50%{
+                transform: scale(0.3);
+                border-radius: 50%;
+                background-color: mediumseagreen;
+            }
+            
+            100%{
+                transform: scale(1) rotate(-720deg);
+                background-color:pink;
+                
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

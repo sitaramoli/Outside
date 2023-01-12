@@ -1,0 +1,407 @@
+:root {
+    --off-black: #00001A;
+    --off-white: #FDF8EC;
+    --light-grey: #C5C6CE;
+    --off-grey: #5E607A;
+    --off-red: #F15E50;
+    --off-orange: #E9AB53;
+    
+}
+
+/* set the padding and margin of all elements to 0 and box sizing to border box */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* smooth scrolling when back to top button is clicked */
+    background-color: var(--off-white);
+    font-size: 10px; /*for mobile view, base font size is set to 10px*/
+    font-family: "Poppins", sans-serif;
+}
+
+ a {
+    color: var(--off-grey);
+    cursor:default;
+    text-decoration: none;
+}
+
+a:hover{
+    color: var(--off-orange);
+    transition: all .2s ease-in;
+}
+
+.wrapper {
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+/* logo and menu section */
+.header {
+    height: 5rem;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    left: 0;
+    width: 4rem;
+}
+
+.logo img {
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+#hamburger-input {
+    height: 40px;
+    width: 40px;
+}
+
+#hamburger-nav {
+    position: absolute;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background-image: url("../images/menu-icon.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#sidebar-nav {
+    background-color: var(--off-white);
+    padding-top: 15rem;
+    padding-left: 3rem;
+    font-size: 1.8rem;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    right: -70rem;
+    height: 100%;
+    width: 70vw;
+    transition: 0.5s;
+}
+
+#sidebar-nav li {
+    padding: 15px 0;
+}
+
+#hamburger-input {
+    display: none;
+    /* hide the checkbox */
+}
+
+#hamburger-input:checked ~#sidebar-nav {
+    /* when hamburger is clicked, show the sidebar nav */
+    visibility: visible;
+    right: 0;
+    z-index: 1;
+
+}
+
+/* show the close icon when sidebar nav is opened */
+#hamburger-input:checked+#hamburger-nav {
+    z-index:11;
+    background-image: url("../images/close-icon.svg");
+}
+
+/* when hamburger button is clicked, overlay is made visible to blur the background */
+#hamburger-input:checked~.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--off-grey);
+    visibility: visible;
+    opacity: 0.5;
+    height: 100%;
+    width: 100vw;
+    transition: 0.5s;
+}
+
+/* main nav is for tablets and desktops. It is not displayed in mobile view */
+#main-nav {
+    display: none;
+    font-size: 1rem;
+    font-weight: 400;
+    position: absolute;
+    top: 10px;
+    right: -10px;
+}
+
+#main-nav li{
+    /* for spacing betn main nav items */
+    margin: 10px;
+    
+}
+
+/* main image container */
+.main-img img {
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
+}
+
+/* leadspace content section */
+.leadspace-section{
+    display: grid;
+    gap: 10px;
+}
+.leadspace-section__title {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--off-black);
+}
+
+.leadspace-section__content {
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 2.6rem;
+    color: var(--off-grey);
+}
+
+.button {
+    width: 180px;
+    height: 48px;
+    border: none;
+}
+
+.leadspace-section__button {
+    letter-spacing: 5px;
+    background-color: var(--off-red);
+    color: var(--off-white);
+}
+
+.leadspace-section__button:hover {
+    background-color: var(--off-black);
+    transition: all .2s ease-in;
+}
+
+/* features section */
+.features-section{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.feature {
+    position: relative;
+    display: flex;
+    gap: 25px;
+}
+
+.feature__img {
+    height: 127px;
+    width: 100px;
+}
+
+.feature__img--hover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.feature:hover .feature__img {
+    opacity: 0;
+    transition: 1s ease-out;
+}
+.feature:hover .feature__img--hover{
+    opacity: 1;
+    transition: 1s ease-out;
+}
+
+.feature:hover .feature__content-section a{
+    color: var(--off-orange);
+    transition: color .3s;
+}
+
+.feature__content-section a{
+    color: var(--off-black);
+}
+
+.feature__content-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.feature__content-section__number {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--light-grey);
+}
+
+.feature__content-section__title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--off-black);
+}
+
+.feature__content-section__content {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--off-grey);
+}
+
+/* new list section */
+.new-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+    background-color: var(--off-black);
+}
+
+.new-section__new-item a{
+    color: var(--off-white);
+}
+
+.new-section__new-item a:hover{
+    color: var(--off-orange);
+}
+
+.new-section__heading {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--off-orange);
+}
+
+.new-section__new-item__title {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--off-white)
+}
+
+.new-section__new-item__content {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--light-grey);
+}
+
+.new-section__hr {
+    background-color: var(--off-grey);
+    height: 1px;
+    border-width: 0;
+}
+
+/* back to top button */
+.scroll-top{
+    height: 40px;
+    width: 40px;
+    border: 1px solid var(--light-grey);
+    border-radius: 50%;
+    position: sticky;
+    /* sticky did not work. why? */
+    bottom: 1rem;
+    left: 100vw;
+}
+
+.scroll-top:hover{
+    background-color: var(--light-grey);
+}
+
+.scroll-top a{
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+/* for tablets */
+@media only screen and (min-width:768px){
+
+    html{
+        font-size: 14px;
+    }
+    /* hide back to top botton in tablets and desktops */
+    .scroll-top{
+        display: none;
+    }
+    /* show main nav for tablets and desktops */
+    #main-nav {
+        display: flex;
+    }
+    #hamburger-nav{
+        display: none;
+    }
+
+    /* divide the wrapper into two equal columns */
+    .wrapper{
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    /* logo and navbar section */
+    .header{
+        grid-column: 1/3;
+    }
+    /* main image section */
+    .main-img{
+        grid-column: 1 / 3;
+    }    
+
+    /* leadspace section */
+     .leadspace-section{ 
+        grid-column: 1 / 3;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    } 
+    .leadspace-section__title{
+        grid-column: 1 /2;
+    }
+
+    .leadspace-section__content{
+        grid-column: 2/3;
+    }
+    .leadspace-section__button{
+        grid-column: 2/3;
+    }
+
+    /* features section */
+    .features-section{
+        grid-column: 1/2;
+    }
+
+    /* new section */
+    .new-section{
+        grid-column: 2/3;
+    }
+    
+}
+
+/* for desktops */
+@media only screen and (min-width: 1440px) {
+    html{
+        font-size: 16px;
+    }
+    .wrapper{
+        grid-template-columns: 2fr 1fr;
+        grid-auto-rows: max-content;
+    }
+    /* header section */
+    .header{
+        grid-column: 1/3;
+    }
+    .main-img{
+        grid-column: 1/2;
+    }
+
+    .leadspace-section{
+        grid-column: 1/2;
+    }
+    .features-section{
+        grid-column: 1/3;
+        flex-direction: row;
+    }
+    .new-section{
+        grid-column: 2/3;
+        grid-row: 2/4;
+    }
+}

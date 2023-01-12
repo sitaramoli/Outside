@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
+    <title>Assignment 9</title>
+    <style>
+        .list {
+            list-style-type: none;
+        }
+
+        .list__item::before {
+            content: "\f058";
+            font-family: "Font Awesome 5 Free";
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .list__item {
+            margin: 0.5rem;
+        }
+
+        .list__item:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <ul class="list">
+            <li class="list__item">Lorem ipsum dolor sit amet.</li>
+            <li class="list__item">Lorem ipsum dolor sit amet.</li>
+            <li class="list__item">Lorem ipsum dolor sit amet.</li>
+        </ul>
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+.button {
+    padding: .8rem 1.6rem;
+    white-space: nowrap;
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 2.8rem;
+    letter-spacing: 0;
+    border-radius: 0;
+    font-family: "Inter", sans-serif;
+    &--light {
+        color: $space;
+        border: .2rem solid $space;
+        background-color: $white;
+        &:hover,:active,:focus{
+            color: $teal;
+            border: .2rem solid $teal;
+        }
+        &:disabled{
+            color: $peach;
+            border: .2rem solid $peach;
+        }
+    }
+    &--dark {
+        color: $white;
+        background-color: $space;
+        &:hover,:active,:focus{
+            background-color: $teal;
+        }
+        &:disabled{
+            background-color: $blush;
+        }
+    }
+    &--sky{
+        color: $white;
+        border: .2rem solid $white;
+        background-color: $sky;
+        &:hover,:active,:focus{
+            color: $sky;
+            background-color: $white;
+        }
+    }
+}

@@ -1,0 +1,218 @@
+:root {
+    --main-background-color: #E9EDEF;
+    --light-blue: #7DD0ED;
+    --off-grey: #5F5F5F;
+    --light-grey: #9A9A9A;
+    --off-white: #ffffff;
+    --dark-blue: #27A6D2;
+}
+
+body {
+    margin: 0;
+}
+
+.main {
+    background-color: var(--main-background-color);
+    font-family: "Open Sans";
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    column-gap: 20px;
+    row-gap: 5px;
+    padding: 30px 0;
+}
+
+.plan-card {
+    background-color: var(--off-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 45px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px 0 rgb(95, 95, 95, 0.2);
+}
+
+.plan-card--basic {
+    grid-column: 5 / span 4;
+    grid-row: 2 / span 4;
+}
+
+.plan-card--pro {
+    grid-column: 9 / span 4;
+    grid-row: 2 / span 4;
+}
+
+.plan-card--premium {
+    grid-column: 13 / span 4;
+    grid-row: 2 / span 4;
+}
+
+.plan-card:hover .plan-card__heading {
+    background-color: var(--dark-blue);
+}
+
+.plan-card:hover .plan-card__price-section {
+    color: var(--dark-blue);
+}
+
+.plan-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px 0 rgb(95, 95, 95, 0.4);
+}
+
+
+.plan-card__heading {
+    background-color: var(--light-blue);
+    width: 100%;
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+    color: var(--off-white);
+}
+
+.plan-card__heading__title {
+    font-size: 32px;
+    font-weight: 700;
+
+}
+
+.plan-card__price-section {
+    display: flex;
+    flex-direction: column;
+    color: var(--off-grey);
+    align-items: center;
+    justify-content: space-around;
+}
+
+.plan-card__price {
+    margin: 0px;
+    font-weight: 700;
+    font-size: 64px;
+}
+
+.plan-card__duration {
+    margin: 0px;
+    font-size: 24px;
+}
+
+.plans-section {
+    color: var(--light-grey);
+    font-size: 11px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.plan-card__plan {
+    margin: 0;
+}
+
+/* Details card styles */
+.details-card {
+
+    align-self: center;
+    background-color: var(--off-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    color: var(--off-grey);
+    font-size: 30px;
+    grid-column: 5 / span 12;
+    grid-row: 7 / span 5;
+    padding: 0 20px 30px 20px;
+}
+
+.details-card__type {
+    width: 100%;
+}
+
+.graph {
+    width: 100%;
+    text-align: center;
+    background-color: var(--main-background-color);
+    height: 30px;
+    border-radius: 100px;
+}
+
+.details-card__text-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.details-card__graph--users {
+    visibility: hidden;
+    border-radius: 100px;
+    background-color: var(--light-blue);
+    width: 20%;
+    height: 30px;
+}
+
+.plan-card:hover~.details-card .details-card__graph--users {
+    visibility: visible;
+    animation-name: users-graph-animation;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes users-graph-animation {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 20%;
+    }
+}
+
+.details-card__graph--data {
+    visibility: hidden;
+    border-radius: 100px;
+    background-color: var(--light-blue);
+    width: 60%;
+    height: 30px;
+}
+
+.plan-card:hover~.details-card .details-card__graph--data {
+    visibility: visible;
+    animation-name: data-graph-animation;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes data-graph-animation {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 60%;
+    }
+}
+
+.details-card__graph--projects {
+    visibility: hidden;
+    border-radius: 100px;
+    background-color: var(--light-blue);
+    width: 20%;
+    height: 30px;
+}
+
+.plan-card:hover~.details-card .details-card__graph--projects {
+    visibility: visible;
+    animation-name: projects-graph-animation;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes projects-graph-animation {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 20%;
+    }
+}

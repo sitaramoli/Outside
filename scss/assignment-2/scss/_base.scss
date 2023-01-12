@@ -1,0 +1,45 @@
+// color
+$white: #ffffff;
+$black: #3D3E48;
+$army-green: #295943;
+
+// typography
+$font-family: "Poppins";
+$font-weight: ("regular":400,"semibold":600,"bold":700);
+
+
+@mixin typography($font-size,$font-weight,$line-height){
+    font-size: $font-size;
+    font-weight: $font-weight;
+    line-height: $line-height;
+}
+// h1 mixin
+@mixin h1 {
+    @include typography(27.6px, map-get($font-weight, "bold"), 120%);
+}
+
+// h2 mixin
+@mixin h2 {
+    @include typography(19.2px, map-get($font-weight, "bold"), 180%);
+   
+}
+
+// body-1
+@mixin body-1{
+    @include typography(16px, map-get($font-weight,"regular"), 180%);
+}
+// body-1 bold
+@mixin body-1-bold{
+    @include typography(16px, map-get($font-weight, "bold"), 180%);
+}
+// body-2
+@mixin body-2{
+    @include typography(14px, map-get($font-weight,"regular"), 180%);
+}
+
+// medial queries
+@mixin desktop{
+    @media screen and (min-width:1024px) {
+        @content;
+    }
+}

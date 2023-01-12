@@ -1,0 +1,12 @@
+.offcanvas{
+    background-color: $teal;
+}
+.offcanvas-header{
+    border: .1rem solid $white;
+    justify-content: start;
+    padding: 3.55rem 0;
+}
+.offcanvas-body{
+    padding: 4rem;
+    justify-content: end;
+}

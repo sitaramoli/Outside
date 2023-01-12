@@ -1,0 +1,280 @@
+:root {
+    --primary: #7C6957;
+    --secondary: #F5E8DF;
+    --secondary-hover: #CBBFB6;
+    --gradient-start: #FBFD94;
+    --gradient-end: #C8802C;
+    --off-white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 70%;
+}
+
+/* main background container */
+.main {
+    background-image: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    width: 100%;
+    height: 60rem;
+    position: relative;
+    font-family: "Open Sans";
+    color: var(--primary);
+}
+
+/* bio card container */
+.bio-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(11, 1fr);
+    background-color: var(--off-white);
+    width: 80vw;
+    height: 50rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    border-radius: 10px;
+
+
+}
+
+/* left section of the card */
+.bio-card-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    grid-column: 1 / 2;
+    grid-row: 1 / span 10;
+    padding: 2rem 0;
+}
+
+/* container for avatar,name and profession */
+.image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* rotate borders on hover */
+.image-section:hover .outer-circle {
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.image-section:hover .circle-avatar {
+    animation: rotate-img 2s linear infinite;
+}
+
+@keyframes rotate-img {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+/* border of outer circle */
+.outer-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15rem;
+    width: 15rem;
+    border-top: 4px solid var(--primary);
+    border-right: 4px solid var(--off-white);
+    border-bottom: 4px solid var(--primary);
+    border-left: 4px solid var(--primary);
+    border-radius: 50%;
+}
+
+/* border of inner circle */
+.inner-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 14rem;
+    width: 14rem;
+    border-top: 4px solid var(--primary);
+    border-right: 4px solid var(--primary);
+    border-bottom: 4px solid var(--primary);
+    border-left: 4px solid var(--off-white);
+    border-radius: 50%;
+}
+
+/* circle avatar container */
+.circle-avatar {
+    height: 13rem;
+    width: 13rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* avatar */
+.circle-avatar img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+
+}
+
+.intro__name {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.intro__profession {
+    font-size: 1.88rem;
+    font-weight: 400;
+}
+
+.button-section {
+    height: 10rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.button {
+    width: 16rem;
+    height: 4rem;
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: var(--primary);
+    background-color: var(--off-white);
+    border: 2px solid var(--primary);
+    border-radius: 2rem;
+}
+
+.button--primary:hover {
+    transition: all 0.5s;
+    background-color: var(--primary);
+    color: var(--off-white);
+}
+
+
+
+.bio-card-reputation {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    grid-column: 1 / 2;
+    grid-row: 11 / 12;
+    border-radius: 0 0 10px 10px;
+
+}
+
+.bio-card__reputation-button {
+    background-color: var(--secondary);
+    width: 32%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.posts-button{
+    border-radius: 0 0 0 10px;
+}
+.followers-button{
+    border-radius: 0 0 10px 0;
+}
+
+.bio-card__reputation-button:hover {
+    transition: all 0.5s;
+    background-color: var(--secondary-hover);
+}
+
+.reputation-count {
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+
+.reputation-type {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+/* for medium devices */
+@media only screen and (min-width:768px) {
+    html{
+        font-size: 90%;
+    }
+    .main{
+        height: 75rem;
+    }
+    .bio-card{
+        height: 50rem;
+    }
+    .bio-card-intro {
+        grid-row: 1 / span 9;
+    }
+    
+    .bio-card-reputation { 
+        grid-row: 10 / 12;
+    
+    }
+    
+}
+
+
+/* for large devices */
+@media only screen and (min-width:1024px) {
+    html{
+        font-size: 100%;
+    }
+    .main{
+        height: 60rem;
+    }
+    .bio-card {
+        height: 50rem;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: repeat(10, 1fr);
+
+    }
+
+    .bio-card-intro {
+        grid-row: 1 / span 10;
+
+    }
+    
+    .bio-card-reputation {
+        flex-direction: column;
+        grid-column: 2 / 3;
+        grid-row: 1 / span 10;
+        border-radius: 0 10px 10px 0;
+    }
+    .bio-card__reputation-button {
+        height: 32%;
+        width: 100%;
+        
+    }
+    .posts-button{
+        border-radius: 0 10px 0 0;
+    }
+    .followers-button{
+        border-radius: 0 0 10px 0;
+    }
+
+}

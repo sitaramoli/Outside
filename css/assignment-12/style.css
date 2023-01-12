@@ -1,0 +1,98 @@
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border: 1px solid black;
+            width: 300px;
+            height: 50px;
+            margin: 90px auto;
+        }
+        .tooltip {
+            position:relative;
+            display: inline-block;
+        }
+        .tooltip .tooltip-text{
+            display: none;
+            background-color: white;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px 0;
+            position:absolute;
+        }
+        .tooltip .danger-text {
+            width: 200px;
+            color: rgb(220, 20, 60);
+            filter: drop-shadow(0 2px 5px rgba(220, 20, 60,0.4));
+            border-color: transparent transparent white transparent;
+            left: 50%;
+            top: 150%;
+            margin-left: -595%;
+
+        }
+        .tooltip .tooltip-text::after {
+            content: "";
+            position:absolute;
+            border-width: 10px;
+            border-style: solid;
+            z-index: 1;
+        }
+        .tooltip .danger-text::after {
+            bottom: 100%;
+            left: 50%;
+            border-color: transparent transparent white transparent;
+        }
+        .tooltip:hover .danger-text, .tooltip:hover{
+            display: block;
+            color: rgb(220, 20, 60);
+        }
+        .tooltip:hover #fingerprint-path{
+           stroke: rgb(30, 144, 255);
+        }
+
+        .tooltip .fingerprint-text {
+            width: 250px;
+            color:rgb(30, 144, 255);
+            filter: drop-shadow(0 2px 5px rgba(30, 144, 255,0.4) );
+            border-color: white transparent transparent transparent;
+            bottom: 150%;
+            left: 50%;
+            margin-left: -540%;
+
+        }
+        .tooltip .fingerprint-text::after {
+            top:100%;
+            left: 50%;
+            border-color: white transparent transparent transparent;
+        }
+        .tooltip:hover .fingerprint-text{
+            display: block;
+            color:rgb(30, 144, 255);
+        }
+        .cow-image {
+            height: 25px;
+            width: 25px;
+            background-image: url("images/cow.svg");
+        }
+        .tooltip .cow-text {
+            width: 150px;
+            color:rgb(30, 144, 255);
+            filter: drop-shadow(0 2px 5px rgba(223, 126, 142,0.4) );
+            border-color: transparent transparent white transparent;
+            top: 150%;
+            left: 50%;
+            margin-left: -340%;
+
+        }
+        .tooltip .cow-text::after {
+            bottom:100%;
+            left: 50%;
+            border-color: transparent transparent white transparent;
+        }
+        .tooltip:hover .cow-text{
+            display: block;
+            color:rgb(223, 126, 142);
+        }
+        .tooltip:hover .cow-image{
+            background-image: url("images/cow-hover.svg");
+        }

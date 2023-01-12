@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors</title>
+    <style>
+        label {
+            display: block;
+        }
+        span:hover {
+            background-color: aquamarine;
+        }
+        input:checked {
+            border: none;
+            outline: 2px solid red;
+        }
+        input:focus {
+            background-color: aquamarine;
+        }
+        a:active {
+            text-decoration: none;
+            color: red;
+        }
+        button:disabled {
+            background-color: grey;
+        }
+        input:invalid {
+            border: none;
+            outline: 2px solid red;
+        }
+        .pg::first-letter {
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Examples of state selectors are:</h2>
+    <p>
+        <h3>:hover</h3>
+        - selects an element when user hovers a mouse over it.
+        <label>
+            <span>Hover over me</span>
+        </label>
+        <hr>
+        <h3>:active</h3>
+        -selects an element when it is being activated.
+        <label>
+            <a href="#">Click me</a>
+        </label>
+        <hr>
+        <h3>:checked</h3>
+        - selects a checked radio button or checkbox.
+        <label>
+            <input type="radio" name="car" id="car" checked>Toyota
+        </label>
+        <label>
+            <input type="radio" name="car" id="car">Tesla
+        </label>
+        <label>
+            <input type="checkbox" name="car" id="car" checked>Send me emails
+        </label>
+        <hr>
+        <h3>:focus</h3>
+        -selects an element that has focus.
+        <label>Name:
+            <input type="text" name="name" id="name">
+        </label>
+        <hr>
+        <h3>:disabled</h3>
+        selects a disabled element
+        <button disabled="disabled">Disabled Button</button>
+        <hr>
+        <h3>:invalid</h3>
+        selects any form,fieldset,input or other form elements that fail to validate.
+        <label>Number less than 4:
+            <input type="number" name="age" id="age" max="4">
+        </label>
+        <hr>
+        <h3>::first-letter</h3>
+        <p class="pg">
+            This is a paragraph.
+        </p>
+        <hr>
+        <h2>Some level 4 selectors</h2>
+        <h3>:blank</h3>
+        selects empty user input elements like &lt;input&gt;,&lt;textarea&gt;
+        <h3>:user-invalid</h3>
+        selects user-altered user-input elements with invalid input.
+        <h3>:nth-col(n)</h3>
+        selects element that represents a cell belonging to the nth column in a grid/table
+    </p>
+</body>
+</html>

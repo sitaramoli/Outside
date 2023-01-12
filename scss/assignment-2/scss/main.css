@@ -1,0 +1,90 @@
+.card {
+  min-width: 375px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+  background: #ffffff;
+  box-shadow: 1px 2px 12px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+.card__img img {
+  height: auto;
+  max-width: 100%;
+}
+.card__title {
+  display: flex;
+  flex-direction: column;
+  font-size: 19.2px;
+  font-weight: 700;
+  line-height: 180%;
+}
+.card__meta {
+  display: flex;
+  justify-content: space-between;
+}
+.card__meta__price {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 180%;
+  color: #295943;
+}
+.card__meta__trip-days {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 180%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Poppins";
+}
+
+.wrapper {
+  display: flex;
+  gap: 50px;
+  flex-direction: column;
+  padding: 20px;
+}
+.wrapper .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper .header__top {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 180%;
+  color: #295943;
+}
+.wrapper .header__bottom {
+  font-size: 27.6px;
+  font-weight: 700;
+  line-height: 120%;
+}
+.wrapper .cards-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 20px;
+  scrollbar-width: none;
+}
+.wrapper .cards-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .wrapper .cards-wrapper {
+    row-gap: 30px;
+    -moz-column-gap: 20px;
+         column-gap: 20px;
+    flex-wrap: wrap;
+  }
+}/*# sourceMappingURL=main.css.map */

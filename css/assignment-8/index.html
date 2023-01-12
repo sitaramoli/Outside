@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 8</title>
+    <style>
+        div {
+            border:2px solid black;
+            padding: 10px;
+        }
+        .float {
+            float: right;
+        }
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+</head>
+<body>
+    <h3>Potential issues that can arise when using the clear property:</h3>
+    <ol>
+        <li>Overriding the clear property
+            <p>
+                If you apply the clear property to an element and then apply a 
+                different value to a child element, the child element's value will 
+                override the parent element's value. This can lead to unexpected behavior 
+                and may be difficult to troubleshoot.
+            </p>
+        </li>
+        <li>Inconsistent browser support
+            <p>
+                The clear property may not be supported in all browsers, which can lead 
+                to inconsistencies in the way that content is displayed across different devices.
+            </p>
+        </li>
+        <li>Conflicting with other layout properties
+            <p>
+                The clear property may conflict with other layout properties, such as 
+                float or position, and may cause unexpected behavior.
+            </p>
+        </li>
+    </ol>
+    <h3>The solutions to solve these issues are:</h3>
+    <h4>1. Use clearfix hack:</h4>
+    <h4>Without clearfix</h4>
+    <div>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia, consequuntur?
+        <div class="float">floating div</div>
+    </div>
+    <h4>with clearfix</h4>
+    <div class="clearfix">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia, consequuntur?
+        <div class="float">floating div</div>
+    </div>
+    <h4>2. Use a modern layout technique</h4>
+    <p>
+        Instead of using the clear property, you can use a modern layout technique such 
+        as Flexbox or Grid to control the layout of your content. These techniques are 
+        more flexible and provide more control over the layout of your content.
+    </p>
+</body>
+</html>

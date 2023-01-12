@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 5</title>
+    <style>
+        .inline-block {
+            display: inline-block;
+            background-color: green;
+        }
+        .items {
+            height: 100px;
+            width: 100px;
+            font-size: 20px;
+        }
+        .font-size{
+            font-size: 0px;
+        }
+        .flex {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="inline-block items">inline</div>
+        <div class="inline-block items">block</div>
+    </div>
+    <p>There are two methods to remove the white spacing between inline block elements.</p>
+    <h2>
+        By assigning the font size of parent of inline elements to 0px and assign proper font size to 
+        inline-block elements.
+    </h2>
+    <div class="font-size">
+        <div class="inline-block items">inline</div>
+        <div class="inline-block items">block</div>
+    </div>
+    <h2>
+        By making the display of parent element to flex.
+    </h2>
+    <div class="flex">
+        <div class="inline-block items">inline</div>
+        <div class="inline-block items">block</div>
+    </div>
+</body>
+</html>

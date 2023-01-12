@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <title>Assignment 16</title>
+</head>
+
+<body>
+    <div class="wrapper" id="wrapper">
+        <!-- Navigation -->
+        <header class="header">
+            <picture class="logo">
+                <img src="images/logo.svg" alt="logo">
+            </picture>
+            <!-- Main navigation for tablets and PC -->
+            <nav>
+                <ul id="main-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">New</a></li>
+                    <li><a href="#">Popular</a></li>
+                    <li><a href="#">Trending</a></li>
+                    <li><a href="#">Categories</a></li>
+                </ul>
+            </nav>
+            <!-- Checkbox is used to used to check the click on hamburger icon -->
+            <input type="checkbox" name="menu" id="hamburger-input">
+            <label for="hamburger-input" id="hamburger-nav"></label>
+            <!-- Sidebar Nabigation for mobiles -->
+            <nav id="sidebar-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">New</a></li>
+                    <li><a href="#">Popular</a></li>
+                    <li><a href="#">Trending</a></li>
+                    <li><a href="#">Categories</a></li>
+                </ul>
+            </nav>
+            <!-- blur the background other than sidebar nav -->
+            <div class="overlay"></div>
+        </header>
+        <picture class="main-img">
+            <img src="images/union.png" alt="union">
+        </picture>
+
+        <!-- leadspace section -->
+        <section class="leadspace-section">
+            <h1 class="leadspace-section__title">The Bright Future of Web 3.0?</h1>
+            <p class="leadspace-section__content">
+                We dive into the next evolution of the web that claims to put the power
+                of the platforms back into the hands of the people. But is it really
+                fulfilling its promise?
+            </p>
+            <button class="button leadspace-section__button">READ MORE</button>
+        </section>
+
+        <!-- features section -->
+        <section class="features-section">
+            <div class="feature">
+                <picture >
+                    <img class="feature__img" src="images/retro-pc.png" alt="retro-pc">
+                    <img class="feature__img--hover" src="images/gaming.png" alt="retro-pc">
+                </picture>
+                <div class="feature__content-section">
+                    <h2 class="feature__content-section__number">01</h2>
+                    <h3 class="feature__content-section__title"><a href="#">Reviving Retro PCs</a></h3>
+                    <p class="feature__content-section__content">
+                        What happens when old PCs are given modern upgrades?
+                    </p>
+                </div>
+            </div>
+            <div class="feature">
+                <picture >
+                    <img class="feature__img" src="images/laptop.png" alt="laptop">
+                    <img class="feature__img--hover" src="images/gaming.png" alt="laptop">
+                </picture>
+                <div class="feature__content-section">
+                    <h2 class="feature__content-section__number">02</h2>
+                    <h3 class="feature__content-section__title"><a href="#">Top 10 Laptops of 2022</a></h3>
+                    <p class="feature__content-section__content">
+                        Our best picks for various needs and budgets.
+                    </p>
+                </div>
+            </div>
+            <div class="feature">
+                <picture>
+                    <img class="feature__img" src="images/gaming.png" alt="laptop">
+                    <img class="feature__img--hover" src="images/gaming.png" alt="gaming">
+                </picture>
+                <div class="feature__content-section">
+                    <h2 class="feature__content-section__number">03</h2>
+                    <h3 class="feature__content-section__title"><a href="#">The Growth of Gaming</a></h3>
+                    <p class="feature__content-section__content">
+                        How the pandemic has sparked fresh opportunities.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- new section -->
+        <section class="new-section">
+            <h1 class="new-section__heading">New</h1>
+            <div class="new-section__new-item">
+                <h3 class="new-section__new-item__title"><a href="#">Hydrogen VS Electric Cars</a></h3>
+                <p class="new-section__new-item__content">
+                    Will hydrogen-fueled cars ever catch up to EVs?
+                </p>
+            </div>
+            <hr class="new-section__hr">
+            <div class="new-section__new-item">
+                <h3 class="new-section__new-item__title"><a href="#">The Downsides of AI Artistry</a></h3>
+                <p class="new-section__new-item__content">
+                    What are the possible adverse effects of on-demand AI image generation?
+                </p>
+            </div>
+            <hr class="new-section__hr">
+            <div class="new-section__new-item">
+                <h3 class="new-section__new-item__title"><a href="#">Is VC Funding Drying Up?</a></h3>
+                <p class="new-section__new-item__content">
+                    Private funding by VC firms is down 50% YOY. We take a look at what that means.
+                </p>
+            </div>
+        </section>
+        <!-- back to top button -->
+        <div class="scroll-top">
+            <a href="#wrapper"><img src="images/top-arrow.svg" alt="back to top"></a>
+        </div>
+    </div>
+</body>
+
+</html>

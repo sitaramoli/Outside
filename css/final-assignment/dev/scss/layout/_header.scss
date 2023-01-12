@@ -1,0 +1,60 @@
+@import '../mixins/breakpoint';
+.#{$global} {
+    &-header {
+        background: $white;
+    }
+}
+.header {
+
+    .hamburger {
+        margin-right: 3.6rem;
+    }
+    img {
+        height: 7rem;
+        @include respond-above(xl){
+            height: 12.4rem;
+        }
+    }
+
+    .close-btn {
+        margin: 0 2.4rem;
+    }
+
+    .contact-us-btn{
+        display: none;
+        @include respond-between(md, xl) {
+            display: block;
+        }
+    }
+
+    .offcanvas-body {
+        ul {
+            display: flex;
+            gap: 4rem;
+            justify-content: center;
+            align-items: center;
+            a {
+                color: $space;
+                font-size: 1.8rem;
+                font-weight: 600;
+                line-height: 150%;
+                letter-spacing: 0;
+                font-family: "Inter",sans-serif;
+                transition: none !important;
+                &:hover{
+                    color: $teal;
+                }
+            }
+        }
+    }
+    .offcanvas.show {
+        ul {
+            a {
+                color: $white;
+                font-size: 2.3rem;
+                font-weight: 700;
+                line-height: 140%;
+            }
+        }
+    }
+}

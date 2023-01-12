@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 3</title>
+    <style>
+        code {
+            color: crimson;
+        }
+        .border-element {
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+            border: 2px solid black;
+            box-sizing: border-box;
+        }
+        .padding-element {
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+            border: 2px solid black;
+            box-sizing: content-box;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>box-sizing property</h2>
+    </header>
+    <main>
+        <p>
+            `box-sizing` property allows us to control the size of element's content box, padding box, and border box.
+        </p>
+        <p>
+            By default, the size of element's content box is determined by the width and height properties.
+            The padding and border are then added outside of the content box to determine the size of the 
+            element's box.
+        </p>
+        <p>
+            With `box-sizing` property we can change change this behavior and have the padding and border included
+            in the size of content box.This is useful when we want to set the width and height of an element and have the
+            padding and border fit within those dimensions.
+        </p>
+        <p>
+            Following example shows the use of `box-sizing` property to create an alternate box model: <br>
+            <code>
+                .border-element{<br>
+                    width: 200px;<br>
+                    height: 200px;<br>
+                    padding: 20px;<br>
+                    border: 2px solid black;<br>
+                    box-sizing: border-box;<br>
+                }
+            </code>
+            <div class="border-element">
+                This is an element with the given properties.
+            </div>
+            <p>
+                Here `box-sizing` property is set to `border-box`, so the padding and border will be included in 
+                the size of content box.The total width and heiht of element will be 200px and 200px respectively.
+            </p>
+        </p>
+        <p>
+            This example shows the use of `box-sizing: content-box` property: <br>
+            <code>
+                .padding-element{<br>
+                    width: 200px;<br>
+                    height: 200px;<br>
+                    padding: 20px;<br>
+                    border: 2px solid black;<br>
+                    box-sizing: content-box;<br>
+                }
+            </code>
+            <div class="padding-element">
+                This is an element with the given properties.
+            </div>
+            <p>
+                Here `box-sizing` property is set to `content-box`. The total width of an element 
+                will be 244px(200px + 20px padding on each side + 2px border on each side), and total height will be
+                244px(200px + 20px padding on each side+ 2px border on each side).
+            </p>
+        </p>
+    </main>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 10</title>
+    <style>
+        code {
+            color: crimson;
+        }
+        .min {
+            width: min(400px,50%);
+            background-color: green;
+            color: white;
+            padding: 10px;
+        }
+        .max {
+            width: max(400px,50%);
+            background-color:crimson;
+            color: white;
+            padding: 10px;
+        }
+        .clamp {
+            width: clamp(200px,60%,700px);
+            background-color: aquamarine;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <h3>min()</h3>
+        <p>
+            It allows us to set the smallest value from a list of comma-separated expression as the value of CSS 
+            property value.
+        </p>
+        <code>
+            .min{<br>
+                width: min(400px,50%);<br>
+            }
+        </code>
+        <div class="min">Width of this div is selected from the min() function. Among 400px and 50% of containing 
+            element's width,the smallest value is selected as the width of div. 
+        </div>
+        <h3>max()</h3>
+        <p>
+            max() will set the largest (most positive) value from a list of comma-separated expressions as 
+            the value of a CSS property value.
+        </p>
+        <code>
+            .max{<br>
+                width: max(400px,50%);<br>
+            }
+        </code>
+        <div class="max">
+            Width of this div is selected from the max() function. Among 400px and 50% of containing 
+            element's width,the largest value is selected as the width of div.
+        </div>
+        <h3>clamp()</h3>
+        <p>
+            It clamps a middle value within a range of values between a defined minimum bound 
+            and a maximum bound. The function takes three parameters: a minimum value, a preferred 
+            value, and a maximum allowed value.
+        </p>
+        <code>
+            .clamp{<br>
+                width: clamp(200px,60%,700px);<br>
+            }
+        </code>
+        <div class="clamp">
+            Preferred width of this div is 60% of viewport's width. If 60% of viewport's width is less than 200px,
+            then 200px is used as width of div. If 60% of viewport's width is greater than 700px, then 700px is 
+            used as width of div.
+        </div>
+    </p>
+    <p>
+        Media queries allow us to apply different styles to an element based on the 
+        characteristics of the device or viewport. In addition to that, min(), max(),
+         and clamp() allow us to apply different styles to an element based on the characteristics 
+         of the containing element.
+    </p>
+</body>
+</html>

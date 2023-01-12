@@ -1,0 +1,170 @@
+.color, .color-card__color {
+  height: 80px;
+  width: 150px;
+  border: none;
+  border-radius: 50px;
+}
+
+.color--shadow {
+  box-shadow: 1px 2px 12px 1px rgba(0, 0, 0, 0.25);
+}
+
+.color-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.color-card__color--white {
+  background-color: #ffffff;
+  border: 1px solid #7e7e7e;
+}
+.color-card__color--black {
+  background-color: #3d3e48;
+}
+.color-card__color--army-green {
+  background-color: #295943;
+}
+.color-card__color--light-green {
+  background-color: #43b97f;
+}
+.color-card__color-name {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 100%;
+  color: #3d3e48;
+}
+.color-card__color-value {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 100%;
+  color: #7e7e7e;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Poppins";
+}
+
+.wrapper {
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+.wrapper .header {
+  font-size: 100px;
+  font-weight: 500;
+  line-height: 100%;
+}
+.wrapper .typography {
+  display: flex;
+  gap: 60px;
+  flex-direction: column;
+}
+.wrapper .typography__title {
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 100%;
+}
+.wrapper .typography__lists {
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+}
+.wrapper .typography__lists__item {
+  display: flex;
+  gap: 100px;
+}
+.wrapper .typography__lists__item__name-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.wrapper .typography__lists__item__name-section__name {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 100%;
+}
+.wrapper .typography__lists__item__name-section__size {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 100%;
+  color: #7e7e7e;
+}
+.wrapper .typography__lists__item__name-section__line-height {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 100%;
+  color: #7e7e7e;
+}
+.wrapper .typography__lists__item__para--h1 {
+  font-size: 27.6px;
+  font-weight: 700;
+  line-height: 120%;
+}
+.wrapper .typography__lists__item__para--h2 {
+  font-size: 19.2px;
+  font-weight: 700;
+  line-height: 180%;
+}
+.wrapper .typography__lists__item__para--body-1 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 180%;
+}
+.wrapper .typography__lists__item__para--body-2 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 180%;
+}
+.wrapper .colors {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.wrapper .colors__title {
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 100%;
+}
+.wrapper .colors__lists {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+.wrapper .icons {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.wrapper .icons__title {
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 100%;
+}
+.wrapper .icons .icons-container {
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.wrapper .effects {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.wrapper .effects__title {
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 100%;
+}
+.wrapper .effects__lists {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}/*# sourceMappingURL=main.css.map */

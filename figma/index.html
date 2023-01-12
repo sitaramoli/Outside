@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figma</title>
+    <style>
+
+        .header{
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .card-container{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+        }
+        .card{
+            background-color: #f0eded;
+            display: flex;
+            border-radius: 1rem;
+            flex-direction: column;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            gap: 2rem;
+            padding: 2rem;
+        }
+        .card:hover{
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+        }
+        .button{
+            background-color: #04aa6d;
+            text-decoration: none;
+            text-align: center;
+            color: white;
+            padding: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 20px;
+        }
+        .button:hover{
+            background-color: #038857;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="title">
+            Figma
+        </h1>
+    </header>
+    <main class="main">
+        <div class="card-container">
+            <div class="card">
+                <h2 class="title">Assignment 1</h2>
+                <a class="button" href="https://www.figma.com/file/EEPKCBj4sZt8bR1N1skwN5/Assignment?node-id=2%3A2&t=YAWuTLdZm0nULiGv-1" target="_blank">Code</a>
+                <a class="button" href="https://www.figma.com/file/b8UvtYFyic0y4RvwV4PyJt/Internship---Design-Task?node-id=0%3A1&t=4Bb39RHyZzhl4gia-1" target="_blank">Demo</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

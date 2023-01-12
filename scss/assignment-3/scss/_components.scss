@@ -1,0 +1,42 @@
+// button
+.color {
+    height: 80px;
+    width: 150px;
+    border: none;
+    border-radius: 50px;
+}
+
+.color--shadow {
+    box-shadow: 1px 2px 12px 1px rgba(0, 0, 0, 0.25);
+}
+
+// color card
+.color-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    &__color {
+        @extend .color;
+        &--white {
+            background-color: $white;
+            border: 1px solid $grey;
+        }
+        &--black {
+            background-color: $black;
+        }
+        &--army-green {
+            background-color: $army-green;
+        }
+        &--light-green {
+            background-color: $light-green;
+        }
+    }
+    &__color-name {
+        @include typography(20px, 400, 100%);
+        color: $black;
+    }
+    &__color-value {
+        @include typography(14px, 400, 100%);
+        color: $grey;
+    }
+}

@@ -1,0 +1,35 @@
+@import "base.scss";
+
+.card {
+    min-width: 375px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+    background: #ffffff;
+    box-shadow: 1px 2px 12px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
+    &__img {
+        & img {
+            height: auto;
+            max-width: 100%;
+        }
+    }
+    &__title {
+        display: flex;
+        flex-direction: column;
+        @include h2;
+    }
+    &__meta{
+        display: flex;
+        justify-content: space-between;
+        &__price{
+            @include body-1-bold;
+            color: $army-green;
+        }
+        &__trip-days{
+            @include body-2;
+        }
+    }
+}
