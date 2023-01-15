@@ -1,15 +1,12 @@
 .home-about-us {
-    padding: 4rem 2.4rem;
     display: flex;
     gap: 4rem;
     flex-direction: column;
     align-items: center;
-    @include respond-above(md) {
-        padding: 8rem 4rem;
+    @include media-breakpoint-up(md) {
         flex-direction: row;
     }
-    @include respond-above(xl) {
-        padding: 12rem 8rem;
+    @include media-breakpoint-up(xl) {
         gap: 15rem;
     }
     &__left {
@@ -18,7 +15,6 @@
         gap: 4rem;
     }
     &__right {
-        padding: 2.4rem;
         display: flex;
         flex-direction: column;
         gap: 1.6rem;

@@ -1,28 +1,24 @@
-<!-- <article class="card-a01">
-  <h5 class="stat mb-2">@@stat</h5>
-  <span class="eyebrow text-primary">@@eyebrow</span>
-  <button class="btn btn-success">@@btnText</button>
-</article> -->
-
 <article class="card-h01">
   <picture class="card-h01__img @@boxShadow col-xs-12 col-md-6">
     <img src= "@@src" alt="@@altText">
   </picture>
   <div class="card-h01__body">
-    <span class="card-h01__body__eyebrow r-h6">@@eyebrow</span>
+    <span class="card-h01__body__eyebrow h6 mb-0">@@eyebrow</span>
     <h4 class="h4 m-0">
       @@heading
     </h4>
-    <p class="card-h01__body__para body">
+    <p class="card-h01__body__para body mb-0">
       <span class="date">@@date</span>
       <br>
       <br>
       @@para
     </p>
     @@include('../buttons/right-arrow-button.html',{
-      'btnColor':'button--light',
+      'btnColor':'button--transparent',
       'border':'b-black',
-      'btnText':'@@btnText'
+      'btnText':'@@btnText',
+      'href':'@@href'
+
     })
   </div>
 

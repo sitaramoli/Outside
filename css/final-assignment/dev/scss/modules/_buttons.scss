@@ -37,6 +37,9 @@
             background-color: $white;
         }
     }
+    &--transparent{
+        background-color: transparent;
+    }
 }
 .right-arrow-button{
     align-self: flex-start;
@@ -56,4 +59,7 @@
 }
 .b-white{
     border: .2rem solid $white;
+}
+.b-sky{
+    border: .2rem solid $sky;
 }

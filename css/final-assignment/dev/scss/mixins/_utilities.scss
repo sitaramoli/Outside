@@ -1,13 +1,11 @@
-.bg-sky{
-    background-color: $sky;
-}
-.bg-blush{
-    background-color: $blush;
-}
-.bg-moon{
-    background-color: $moon;
-}
 
 .box-shadow-peach{
     box-shadow: .64rem .73rem 0 $peach;
+}
+.hr{
+    background: $sky;
+    width: 100%;
+    height: 0.8rem;
+    opacity: 1;
+    border: none;
 }

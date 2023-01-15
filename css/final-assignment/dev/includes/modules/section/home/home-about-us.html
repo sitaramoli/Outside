@@ -1,4 +1,4 @@
-<section class="home-about-us">
+<section class="home-about-us container py-10 py-md-20 py-xl-30">
     <div class="home-about-us__left col-xs-12 col-md-6">
         <h6 class="home-about-us__left__eyebrow h6">About us</h6>
         <p class="h3 home-about-us__left__para">
@@ -7,11 +7,12 @@
         </p>
         @@include('../../buttons/right-arrow-button.html',{
             'btnColor':'button--sky',
-            'border':'b-none',
-            'btnText': 'Learn More'
+            'border':'b-sky',
+            'btnText': 'Learn More',
+            'href':'#'
         })
     </div>
-    <div class="home-about-us__right bg-moon">
+    <div class="home-about-us__right bg-moon p-6">
         <h6 class="home-about-us__right__eyebrow h6">How about us?</h6>
         <div class="home-about-us__right__video">
             <video poster="../../../images/home/video.png">

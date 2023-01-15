@@ -20,13 +20,6 @@
         margin: 0 2.4rem;
     }
 
-    .contact-us-btn{
-        display: none;
-        @include respond-between(md, xl) {
-            display: block;
-        }
-    }
-
     .offcanvas-body {
         ul {
             display: flex;

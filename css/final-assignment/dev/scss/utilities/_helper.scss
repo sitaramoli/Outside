@@ -282,12 +282,13 @@
     }
 }
 
-figure {
-    margin: rem(0px);
-}
+// figure {
+//     margin: rem(0px);
+// }
 
 img {
     @extend .mw-100;
+    height: auto;
 }
 
 ul {
