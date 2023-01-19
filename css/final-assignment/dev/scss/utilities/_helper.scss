@@ -282,21 +282,14 @@
     }
 }
 
-// figure {
-//     margin: rem(0px);
-// }
-
 img {
     @extend .mw-100;
     height: auto;
 }
 
 ul {
-    margin: rem(0px);
-    padding: rem(0px);
-    li {
-        list-style-type: none;
-    }
+    margin: 0;
+    padding: 0;
 }
 
 .collapse-text {

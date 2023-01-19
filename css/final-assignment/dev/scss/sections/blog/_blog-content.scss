@@ -1,0 +1,21 @@
+.blog-content{
+    &__wrapper{
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+        @include media-breakpoint-up(md){
+            gap: 4rem;
+        }
+        &__img{
+            background-color: $moon;
+            @include media-breakpoint-up(md){
+                background-color: $white;
+            }
+            & img{
+                @include media-breakpoint-up(xl){
+                    box-shadow: (.8rem .8rem 0 $moon);
+                }
+            }
+        }
+    }
+}

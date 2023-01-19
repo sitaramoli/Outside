@@ -1,0 +1,23 @@
+.contact-hero{
+    &__wrapper{
+        position: relative;
+        &__img{
+            img{
+                display: block;
+            }
+        }
+        &__text-container{
+            border-top: .8rem solid $space;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 1.6rem;
+            @include media-breakpoint-up(md){
+                gap: 2.4rem;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+        }
+    }
+}

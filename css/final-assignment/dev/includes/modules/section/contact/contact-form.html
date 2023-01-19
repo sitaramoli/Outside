@@ -1,0 +1,48 @@
+<section class="contact-form bg-white mx-6 mx-md-10 mx-xl-20">
+    <form class="contact-form__form p-6 p-md-10 p-xl-20">
+        <div class="contact-form__form__top">
+            <h5 class="contact-form__form__top__topic h5">Let’s talk about</h5>
+            <div class="contact-form__form__top__custom-select">
+                <select name="form-topic" id="form-topic">
+                    <option value="project-inqueries">Project inquiries</option>
+                    <option value="careers">Careers</option>
+                    <option value="media">Media</option>
+                    <option value="partnership">Partnership</option>
+                </select>
+                <span class="contact-form__form__top__custom-select__arrow"></span>
+            </div>
+        </div>
+
+        <div class="contact-form__form__body">
+            <div class="contact-form__form__body__name">
+                <div>
+                    <label for="fname">First name</label>
+                    <input type="text" name="fname" id="fname" placeholder="Jane" required />
+                </div>
+                <div>
+                    <label for="lname">Last name</label>
+                    <input type="text" name="lname" id="lname" placeholder="Doe" required />
+                </div>
+            </div>
+            <div class="contact-form__form__body__email">
+                <label for="email">Email address</label>
+                <input type="email" name="email" id="email" placeholder="jane@domain.com" required />
+            </div>
+            <div class="contact-form__form__body__message">
+                <label for="message">Message</label>
+                <input type="text" name="message" id="message" placeholder="How can we help?" required />
+            </div>
+            <div class="contact-form__form__body__policy">
+                This site is protected by reCAPTCHA and the Google
+                <a href="#">Privacy Policy</a>
+                and
+                <a href="#">Terms of Service</a>
+                apply.
+            </div>
+            <button type="submit">
+                Submit
+                <i class="icon-arrow-right"></i>
+            </button>
+        </div>
+    </form>
+</section>

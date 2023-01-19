@@ -1,0 +1,18 @@
+.blog-hero {
+    &__wrapper {
+        position: relative;
+        &__img{
+            & img{
+                display: block;
+            }
+        }
+        &__heading {
+            border-top: 0.8rem solid $space;
+            @include media-breakpoint-up(md) {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+        }
+    }
+}

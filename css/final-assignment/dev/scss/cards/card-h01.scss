@@ -1,24 +1,25 @@
-.card-h01{
+.card-h01 {
     display: flex;
     gap: 4rem;
     flex-direction: column;
     align-items: center;
-    @include media-breakpoint-up(md){
+    @include media-breakpoint-up(md) {
         flex-direction: row;
     }
-    
-    &__img{
-        img{
-            max-width: 100%;
+
+    &__img {
+        img {
+            width: 100%;
             height: auto;
+            box-shadow: 0.64rem 0.73rem 0 $peach;
         }
     }
-    &__body{
+    &__body {
         display: flex;
         flex-direction: column;
         gap: 2.4rem;
-        &__para{
-            .date{
+        &__para {
+            .date {
                 color: $sky;
             }
         }

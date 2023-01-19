@@ -1,0 +1,35 @@
+.blog-listing-hero {
+    &__top {
+        &__wrapper {
+            position: relative;
+            &__img{
+                & img{
+                    display: block;
+                }
+            }
+            &__text-wrapper {
+                border-top: 0.8rem solid $space;
+                @include media-breakpoint-up(md) {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                }
+            }
+        }
+    }
+    &__bottom {
+        &__col {
+            box-shadow: 0.8rem 0.8rem 0 $moon;
+            display: flex;
+            gap: 2.4rem;
+            flex-direction: column;
+            &__eyebrow {
+                font-family: "Inter", sans-serif;
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 22px;
+                letter-spacing: 0.1em;
+            }
+        }
+    }
+}

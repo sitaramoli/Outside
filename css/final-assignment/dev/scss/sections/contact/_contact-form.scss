@@ -1,0 +1,154 @@
+.contact-form {
+    &__form {
+        box-shadow: 0.8rem 0.8rem 0 $moon;
+
+        display: flex;
+        flex-direction: column;
+        gap: 4.5rem;
+        &__top {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+            &__topic {
+                font-family: Arial;
+                font-size: 2.3rem;
+                font-weight: 400;
+                line-height: 1.21;
+            }
+            &__custom-select {
+                position: relative;
+                border: 0.2rem solid $space;
+                width: 100%;
+                @include media-breakpoint-up(md) {
+                    max-width: 40rem;
+                }
+                & select {
+                    width: 100%;
+                    padding: 1.6rem;
+                    font-family: Inter;
+                    font-size: 2.3rem;
+                    font-weight: 700;
+                    line-height: 1.21;
+                    appearance: none;
+                    border: none;
+                    & option {
+                        width: 100%;
+                        background-color: $space;
+                        font-weight: 400;
+                        color: $peach;
+                    }
+                }
+                &__arrow {
+                    position: absolute;
+                    top: 50%;
+                    right: 2.8rem;
+                    transform: translate(0, -0.8rem);
+                    width: 1.6rem;
+                    height: 1.6rem;
+                    pointer-events: none;
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        size: 1.6rem;
+                        width: 0;
+                        height: 0;
+                        border-top: 1.6rem solid $space;
+                        border-left: 1.6rem solid transparent;
+                        border-right: 1.6rem solid transparent;
+                    }
+                }
+            }
+        }
+        &__body {
+            display: flex;
+            flex-direction: column;
+            gap: 2.4rem;
+            @include media-breakpoint-up(md) {
+                gap: 4rem;
+            }
+            &__name {
+                display: flex;
+                flex-direction: column;
+                gap: 2.4rem;
+                @include media-breakpoint-up(md) {
+                    flex-direction: row;
+                    gap: 4rem;
+                }
+            }
+            & input {
+                border: 0.2rem solid $space;
+                padding: 1.6rem;
+                color: $space;
+                outline: none;
+                font-family: Inter;
+                font-size: 2.8rem;
+                font-weight: 400;
+                line-height: 1.14;
+                &::placeholder {
+                    color: $space;
+                    font-family: Inter;
+                    font-size: 2.8rem;
+                    font-style: italic;
+                    font-weight: 400;
+                    line-height: 1.14;
+                }
+                &:focus:invalid {
+                    border-color: red;
+                    &::placeholder {
+                        color: red;
+                    }
+                }
+            }
+
+            & input[name="fname"],
+            & input[name="lname"] {
+                width: 100%;
+            }
+
+            & input[name="email"],
+            & input[name="message"] {
+                width: 100%;
+            }
+
+            & button {
+                background-color: $white;
+                border: 0.2rem solid $space;
+                padding: 0.8rem 1.6rem;
+                font-family: Inter;
+                font-size: 2.3rem;
+                font-weight: 600;
+                line-height: 1.4;
+                width: fit-content;
+                & i {
+                    margin-left: 0.8rem;
+                    font-size: 1.6rem;
+                }
+                &:hover {
+                    color: $sky;
+                    border-color: $sky;
+                    & i {
+                        color: $sky;
+                    }
+                }
+            }
+
+            & label {
+                display: block;
+                font-family: Inter;
+                font-size: 1.8rem;
+                font-weight: 700;
+                line-height: 1.5;
+                letter-spacing: 0em;
+            }
+            &__policy {
+                a {
+                    text-decoration: underline;
+                    color: blue;
+                    &:hover{
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}

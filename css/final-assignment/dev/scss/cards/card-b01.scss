@@ -1,0 +1,13 @@
+.card-b01{
+    background-color: $white;
+    box-shadow: .8rem .8rem 0 $blush;
+    &:hover{
+        background-color: $blush;
+        box-shadow:  .8rem .8rem 0 $peach;
+    }
+    &__img{
+        img{
+            display: block;
+        }
+    }
+}

@@ -43,11 +43,7 @@ button,
 }
 
 p {
-    margin-bottom: 3.2rem;
-
-    &:last-child {
-        @extend .mb-0;
-    }
+    margin-bottom: 0;
 }
 
 ul,
@@ -63,7 +59,7 @@ ol {
         }
 
         &::marker {
-            color: $primary;
+            color: $space;
         }
     }
 }

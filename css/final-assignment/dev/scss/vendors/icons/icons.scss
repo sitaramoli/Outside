@@ -27,6 +27,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-search {
+  &:before {
+    content: $icon-search; 
+  }
+}
 .icon-arrow-45 {
   &:before {
     content: $icon-arrow-45; 

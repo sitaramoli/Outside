@@ -1,0 +1,9 @@
+.about-our-services{
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    @include media-breakpoint-up(md){
+        gap: 8rem;
+    }
+
+}
