@@ -58,6 +58,7 @@
                     align-self: center;
                 }
                 &__dropdown-menu.show {
+                    border: .1rem solid $peach;
                     & >li{
                         &:not(:last-child) {
                             border-bottom: 0.1rem solid $space;
@@ -100,6 +101,15 @@
         gap: 5rem;
         @include media-breakpoint-up(md) {
             gap: 7rem;
+        }
+        &__button{
+            background-color: $space;
+            padding: .8rem 1.2rem;
+            border-radius: 50%;
+            & i{
+                color: $white;
+                font-size: 1.6rem;
+            }
         }
         &__pages-container {
             display: flex;

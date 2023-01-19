@@ -1,5 +1,26 @@
-.home-our-team{
-    &__body{
-        border-top: .8rem solid $sky;
+.home-our-team {
+    &__body {
+        border-top: 0.8rem solid $sky;
+    }
+    &__carousel-controls {
+        &__button {
+            padding:.8rem 1.2rem;
+            background-color: $white;
+            border: none;
+            border-radius: 50%;
+        }
+        &__indicator-wrapper {
+            display: flex;
+            gap: 0.8rem;
+            &__indicator {
+                border-radius: 50%;
+                padding: 0.4rem;
+                border: 0.1rem solid $sky;
+                background-color: $white;
+            }
+            &__indicator.active {
+                background-color: $sky;
+            }
+        }
     }
 }

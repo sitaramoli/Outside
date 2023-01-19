@@ -10,7 +10,7 @@
             flex-direction: column;
             gap: 1.6rem;
             &__topic {
-                font-family: Arial;
+                font-family: Arial,sans-serif;
                 font-size: 2.3rem;
                 font-weight: 400;
                 line-height: 1.21;
@@ -25,17 +25,25 @@
                 & select {
                     width: 100%;
                     padding: 1.6rem;
-                    font-family: Inter;
+                    font-family: "Inter",sans-serif;
                     font-size: 2.3rem;
                     font-weight: 700;
                     line-height: 1.21;
                     appearance: none;
                     border: none;
                     & option {
+                        position: relative;
                         width: 100%;
                         background-color: $space;
                         font-weight: 400;
                         color: $peach;
+                        // &:checked::before{
+                        //     position: absolute;
+                        //     left: 0;
+                        //     top: 0;
+                        //     content: "\e90e";
+                        //     margin-left: .8rem;
+                        // }
                     }
                 }
                 &__arrow {
@@ -86,7 +94,7 @@
                 line-height: 1.14;
                 &::placeholder {
                     color: $space;
-                    font-family: Inter;
+                    font-family: "Inter",sans-serif;
                     font-size: 2.8rem;
                     font-style: italic;
                     font-weight: 400;
@@ -114,7 +122,7 @@
                 background-color: $white;
                 border: 0.2rem solid $space;
                 padding: 0.8rem 1.6rem;
-                font-family: Inter;
+                font-family: "Inter"sans-serif;
                 font-size: 2.3rem;
                 font-weight: 600;
                 line-height: 1.4;
@@ -134,7 +142,7 @@
 
             & label {
                 display: block;
-                font-family: Inter;
+                font-family: "Inter",sans-serif;
                 font-size: 1.8rem;
                 font-weight: 700;
                 line-height: 1.5;

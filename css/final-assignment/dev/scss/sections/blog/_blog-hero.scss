@@ -1,4 +1,7 @@
 .blog-hero {
+    @include media-breakpoint-only(xs){
+        border-bottom: .8rem solid #75E6ED;
+    }
     &__wrapper {
         position: relative;
         &__img{
