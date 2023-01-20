@@ -10,6 +10,7 @@
         margin-right: 3.6rem;
     }
     img {
+        display: block;
         height: 7rem;
         @include respond-above(xl){
             height: 12.4rem;

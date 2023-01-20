@@ -5,18 +5,23 @@
     &__img {
         position: relative;
         order: 2;
+        & img{
+            display: block;
+        }
         @include media-breakpoint-up(md) {
             order: 3;
         }
         &__button {
-            position: absolute;
-            bottom: 0;
-            right: 0;
             display: flex;
+            @include media-breakpoint-up(md) {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
             &__left {
                 flex-grow: 1;
                 &__text {
-                    font-family: Arial,sans-serif;
+                    font-family: Arial, sans-serif;
                     font-size: 1.8rem;
                     font-weight: 400;
                     line-height: 1.11;

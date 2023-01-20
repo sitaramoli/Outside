@@ -12,6 +12,7 @@
                 background-color: $white;
             }
             & img{
+                display: block;
                 @include media-breakpoint-up(xl){
                     box-shadow: (.8rem .8rem 0 $moon);
                 }

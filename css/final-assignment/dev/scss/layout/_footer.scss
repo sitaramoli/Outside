@@ -4,6 +4,7 @@
     // logo section
     .logo {
         & img {
+            display: block;
             height: 7rem;
             @include respond-above(xl) {
                 height: 12.4rem;

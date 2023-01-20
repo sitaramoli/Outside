@@ -1,7 +1,24 @@
-.home-hero{
-    &__lower{
-        &__left{
-            border-top: .8rem solid $sky;
+.home-hero {
+    &__upper {
+        &__left {
+            & img {
+                display: block;
+            }
+        }
+        &__right {
+            & img {
+                display: block;
+            }
+        }
+    }
+    &__lower {
+        &__left {
+            border-top: 0.8rem solid $sky;
+        }
+        &__right {
+            & img {
+                display: block;
+            }
         }
     }
 }

@@ -1,6 +1,11 @@
 .home-our-team {
-    &__body {
+    &__carousel {
         border-top: 0.8rem solid $sky;
+        &__carousel-item{
+            & img{
+                display: block;
+            }
+        }
     }
     &__carousel-controls {
         &__button {
