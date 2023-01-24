@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstarp</title>
+    <title>Bootstrap</title>
     <style>
+        .title{
+            text-align: center;
+            font-size: 50px;
+            margin: 0;
+            color: #525554;
+        }
 
         .header{
             text-align: center;
@@ -19,6 +25,7 @@
             justify-content: center;
         }
         .card{
+            min-width: 150px;
             background-color: #f0eded;
             display: flex;
             border-radius: 1rem;
@@ -48,18 +55,64 @@
 </head>
 <body>
     <header class="header">
-        <h1 class="title">
+        <h1>
             Bootstrap
         </h1>
     </header>
-    <main class="main">
-        <div class="card-container">
-            <div class="card">
-                <h2 class="title">Assignment 1</h2>
-                <a class="button" href="https://github.com/sitaramoli/Outside/tree/main/bootstrap/assignment-1" target="_blank">Code</a>
-                <a class="button" href="assignment-1/" target="_blank">Demo</a>
-            </div>
-        </div>
+    <main id="main">
+        
     </main>
+    <script>
+        const assignmentList = [
+            {
+                title: "1",
+                code:{
+                    class:"button",
+                    href:"https://github.com/sitaramoli/Outside/tree/main/bootstrap/assignment-1",
+                    target:"_blank"
+                },
+                demo:{
+                    class: "button",
+                    href: "assignment-1/",
+                    target:"_blank"
+                }
+            }
+        ];
+
+        let main = document.getElementById("main");
+        let cardContainer = document.createElement("div");
+        cardContainer.setAttribute("class","card-container");
+        main.appendChild(cardContainer);
+
+        for (let i = 0; i < assignmentList.length; i++) {
+            const element = assignmentList[i];
+
+            let card = document.createElement("div");
+            card.setAttribute("class","card");
+            cardContainer.appendChild(card);
+
+            let title = document.createElement("h2");
+            title.setAttribute("class","title");
+            let titleText = document.createTextNode(element.title);
+            title.appendChild(titleText);
+            card.appendChild(title);
+
+            
+
+            let code = document.createElement("a");
+            Object.keys(element.code).forEach(key=>code.setAttribute(key,element.code[key]));
+            card.appendChild(code);
+            let codeText = document.createTextNode("Code");
+            code.appendChild(codeText);
+            
+            let demo = document.createElement("a");
+            Object.keys(element.code).forEach(key=>demo.setAttribute(key,element.demo[key]));
+            card.appendChild(demo);
+            let demoText = document.createTextNode("Demo");
+            demo.appendChild(demoText);
+
+        }
+
+    </script>
 </body>
 </html>
