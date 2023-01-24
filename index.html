@@ -7,6 +7,36 @@
     <title>Outside Internship</title>
 
     <style>
+        *{
+            box-sizing: border-box;
+        }
+        #main{
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            align-items: center;
+            gap: 2rem;
+
+        }
+        .profile{
+            display: block;
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35);
+            transition: all .2s;
+
+        }
+        .profile:active{
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.35);
+            transform: translateY(5px);
+        }
+        .profile img{
+            width: 100%;
+            height: auto;
+
+        }
         .card-container{
             display: flex;
             flex-wrap: wrap;
@@ -14,57 +44,141 @@
             align-items: center;
             justify-content: center;
         }
-        .link{
+        
+        .card{
+            position: relative;
+            height: 150px;
+            width: 150px;
             display: block;
             text-decoration: none;
-            color:#04aa6d;
-        }
-        .link:hover{
-            color: #038857;
-        }
-        .card{
             background-color: #f0eded;
             border-radius: 1rem;
-            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35) ;
             padding: 2rem;
             min-width: 6rem;
+            transition: all .2s;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
         }
-        .card:hover{
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
+        .card-figma{
+            background-image: url("images/figma.png");
         }
+        .card-html{
+            background-image: url("images/html.png");
+        }
+        .card-css{
+            background-image: url("images/css.png");
+        }
+        .card-bootstrap{
+            background-image: url("images/bootstrap.png");
+        }
+        .card-scss{
+            background-image: url("images/scss.png");
+        }
+        .card-js{
+            background-image: url("images/js.png");
+        }
+        .card:active{
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.35);
+            transform: translateY(5px);
+        }
+        .overlay{
+            position: absolute;
+            border-radius: 1rem;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            font-weight: 700;
+            font-size: 30px;
+            color: #ffffff;
+            background-color: rgba(0, 0, 0, 0.65);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .overlay:hover{
+            color: #d5d8d7;
+        }
+        
 
     </style>
 </head>
 <body>
-    <main>
-        <div class="card-container">
-            <a class="link" href="figma/" target="_blank">
-                <div class="card card-figma">
-                    <h2 class="title">Figma</h2>
-                </div>
-            </a>
-            <a class="link" href="html/" target="_blank">
-                <div class="card card-figma">
-                    <h2 class="title">HTML</h2>
-                </div>
-            </a>
-            <a class="link" href="css/" target="_blank">
-                <div class="card card-figma">
-                    <h2 class="title">CSS</h2>
-                </div>
-            </a>
-            <a class="link" href="bootstrap/" target="_blank">
-                <div class="card card-figma">
-                    <h2 class="title">Bootstrap</h2>
-                </div>
-            </a>
-            <a class="link" href="scss/" target="_blank">
-                <div class="card card-figma">
-                    <h2 class="title">SCSS</h2>
-                </div>
-            </a>
-        </div>
+    <main id="main">
     </main>
+
+    <script>
+        const courses = [
+            {
+                class:"card card-figma",
+                name: "Figma",
+                href: "figma/",
+                target:"_blank"
+
+            },
+            {
+                class:"card card-html",
+                name: "HTML",
+                href: "html/",
+                target:"_blank"
+
+            },
+            {
+                class:"card card-css",
+                name: "CSS",
+                href: "css/",
+                target:"_blank"
+
+            },
+            {
+                class:"card card-bootstrap",
+                name: "Bootstrap",
+                href: "bootstrap/",
+                target:"_blank"
+
+            },
+            {
+                class:"card card-scss",
+                name: "SCSS",
+                href: "scss/",
+                target:"_blank"
+
+            },
+            {
+                class:"card card-js",
+                name: "Javascript",
+                href: "js/",
+                target:"_blank"
+            }
+        ];
+        const main = document.getElementById("main");
+
+
+        const profileBtn = document.createElement("a");
+        profileBtn.setAttribute("class","profile");
+        profileBtn.setAttribute("href","profile.html");
+        const avatar = document.createElement("img");
+        avatar.setAttribute("src","./images/avatar.jpg");
+        profileBtn.appendChild(avatar);
+        main.appendChild(profileBtn);
+
+        const cardContainer = document.createElement("div");
+        cardContainer.setAttribute("class","card-container");
+        main.appendChild(cardContainer);
+
+        for(let i=0; i<courses.length; i++){
+            let card = document.createElement("a");
+            Object.keys(courses[i]).forEach(key=>card.setAttribute(key,courses[i][key]));
+            cardContainer.appendChild(card);
+            let overlay = document.createElement("div");
+            overlay.setAttribute("class","overlay");
+            let courseName = document.createTextNode(courses[i].name);
+            overlay.appendChild(courseName);
+            card.appendChild(overlay);
+        }
+
+    </script>
 </body>
 </html>

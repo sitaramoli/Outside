@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/7b442a2cf6.js" crossorigin="anonymous"></script>
+    <title>Profile</title>
+    <style>
+        body{
+            padding: 30px;
+        }
+        i{
+            margin-right: 15px;
+        }
+        #main{
+            display: grid;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35);
+            border-radius: 10px;
+            gap: 5px;
+            overflow: hidden;
+            background-color: #eef0f1ec;
+
+
+        }
+        .avatar{
+            margin: 20px;
+            grid-column: 1/2;
+            max-width: 700px;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+        .avatar img{
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        .intro{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            grid-column: 2/3;
+            padding: 20px;
+            color: #363636;
+        }
+        .details{
+            border-top: 8px solid #464444;
+            padding: 20px;
+            grid-column: 1/3;
+            font-size: 20px;
+            color: #363636;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+    </div>
+    <script>
+        const main = document.getElementById("main");
+        const avatar = document.createElement("div");
+        avatar.setAttribute("class","avatar");
+        main.appendChild(avatar);
+        let img = document.createElement("img");
+        img.setAttribute("src","./images/avatar.jpg");
+        avatar.appendChild(img);
+
+        const intro = document.createElement("div");
+        intro.setAttribute("class","intro");
+        main.appendChild(intro);
+
+        // name
+        let nameHeader = document.createElement("h2");
+        let nameText = document.createTextNode("Sitaram Oli");
+        let icon = document.createElement("i");
+        icon.setAttribute("class","fa-solid fa-user");
+        nameHeader.appendChild(icon);
+        nameHeader.appendChild(nameText);
+        intro.appendChild(nameHeader);
+        
+
+        // dob
+        let dobHeader = document.createElement("h2");
+        let dobText = document.createTextNode("1998-Oct-31");
+        icon = document.createElement("i");
+        icon.setAttribute("class","fa-solid fa-cake-candles");
+        dobHeader.appendChild(icon);
+        dobHeader.appendChild(dobText);
+        intro.appendChild(dobHeader);
+
+        // phone
+        let contactHeader = document.createElement("h2");
+        let contactText = document.createTextNode("9866600338");
+        icon = document.createElement("i");
+        icon.setAttribute("class","fa-solid fa-phone");
+        contactHeader.appendChild(icon);
+        contactHeader.appendChild(contactText);
+        intro.appendChild(contactHeader);
+
+        // email
+        let emailHeader = document.createElement("h2");
+        let emailText = document.createTextNode("sitaramoli1998@gmail.com");
+        icon = document.createElement("i");
+        icon.setAttribute("class","fa-solid fa-envelope");
+        emailHeader.appendChild(icon);
+        emailHeader.appendChild(emailText);
+        intro.appendChild(emailHeader);
+
+        // address
+        let addressHeader = document.createElement("h2");
+        let addressText = document.createTextNode("Dang, Nepal");
+        icon = document.createElement("i");
+        icon.setAttribute("class","fa-solid fa-location-dot");
+        addressHeader.appendChild(icon);
+        addressHeader.appendChild(addressText);
+        intro.appendChild(addressHeader);
+
+
+        const details = document.createElement("div");
+        details.setAttribute("class","details");
+        main.appendChild(details);
+        let detailsText = document.createTextNode(
+            "I am a software developer and have been working in this field throughout my Bachelor. My education background allowed me to thrive in this career and my training on this has made me a master of this section.I keep myself up to date with new technologies and its uses, new tools andprogramming languages so that I can give my best."
+            );
+        details.appendChild(detailsText);
+
+    </script>
+</body>
+</html>
