@@ -108,7 +108,6 @@ function resetStopwatch() {
 
 function startCount() {
   if (startTimer == true) {
-    debugger;
     seconds++;
     let hrs = checkNumber(Math.floor(seconds / 3600));
     let mins = checkNumber(Math.floor((seconds - hrs * 3600) / 60));
