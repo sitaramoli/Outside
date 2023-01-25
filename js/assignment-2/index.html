@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/7b442a2cf6.js" crossorigin="anonymous"></script>
+    <title>Digital clock</title>
+    <style>
+        #main {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 0;
+        }
+
+        #clock,#stopwatch {
+            box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 6rem;
+            background-color: #f5efef;
+            padding: 1rem;
+            color: #3f3e3e;
+        }
+    
+        .switch-buttons{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .button{
+            border-radius: 10px;
+            border: none;
+            padding: 15px 10px;
+            font-size: 20px;
+            font-weight: 600;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.35);
+            transition: all .2s;
+
+        }
+        .button:active{
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.35);
+            transform: translateY(5px);
+        }
+        .active{
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.35);
+            transform: translateY(5px);
+        }
+        .control-buttons{
+            display: flex;
+            gap: 1.5rem;
+
+        }
+        #start-btn{
+            background-color: #1f9e5e;
+            color: #fff;
+        }
+        #start-btn:disabled{
+            transform: translateY(5px);
+            box-shadow: none;
+            background-color: #6cbe95;
+        }
+        #stop-btn{
+            background-color: #c93939;
+            color: #fff;
+
+        }
+        #stop-btn:disabled{
+            transform: translateY(5px);
+            box-shadow: none;
+            background-color: #c56d6d;
+
+        }
+        #reset-btn{
+            background-color: #1d8ca8;
+            color: #fff;
+        }
+        #reset-btn:disabled{
+            background-color: #4c8796;
+            transform: translateY(5px);
+            box-shadow: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
