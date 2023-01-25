@@ -13,6 +13,7 @@
             align-items: center;
         }
         .container{
+            border-radius: 10px;
             background-color: #e6e6e6;
             padding: 2rem;
             font-size: 1.5rem;
@@ -20,13 +21,22 @@
         .container >div{
             margin: 1rem;
         }
+        .result{
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            min-height: 30px;
+            border-radius: 5px;
+            box-shadow:inset 5px 5px 10px rgba(0, 0, 0, 0.411);
+        }
         .btn{
-            font-size: 1.3rem;
+            width: 100%;
+            font-size: 1.5rem;
             font-weight: 500;
             border: none;
             background-color: #fff;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.411);
-            padding: 10px;
+            padding: 15px;
             border-radius: 10px;
             transition: all .1s;
         }
@@ -34,9 +44,12 @@
             box-shadow: none;
             transform: translateY(5px);
         }
-        .error{
-            color: red;
+        input[type="number"]{
+            font-size: 1rem;
+            padding: 10px;
+            border: 2px solid black;
         }
+
     </style>
 </head>
 
