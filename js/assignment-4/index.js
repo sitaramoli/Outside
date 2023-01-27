@@ -115,14 +115,12 @@ function createBoxes(parent) {
 
                 if (positionXPass && positionYPass) {
                     j++;
-                    positionXPass = false;
-                    positionYPass = false;
                 }
                 else {
                     j = 0;
-                    positionXPass = false;
-                    positionYPass = false;
                 }
+                positionXPass = false;
+                positionYPass = false;
 
             }
             let box = { boxId: i + 1, positionX: positionX, positionY: positionY, directionX: 1, directionY: 1 };
@@ -145,7 +143,7 @@ function getPosition(coordinate, boxSize) {
 }
 
 function startApp(boxList) {
-    // setInterval(animateBox, TRANSITION_DURATION);
+    setInterval(animateBox, TRANSITION_DURATION);
     function animateBox() {
 
         for (let i = 0; i < boxList.length; i++) {
