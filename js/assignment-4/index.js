@@ -119,26 +119,29 @@ function getPosition(coordinate) {
 
 }
 
-function startApp(boxList) {
-
-    for (let i = 0; i < boxList.length; i++) {
-        box = boxList[i];
-        let coordinateX = parseInt(box.style.left);
-        let coordinateY = parseInt(box.style.top);
-        let directionX = 1;
-        let directionY = 1;
-        function moveBox() {
+function startApp(list) {
+    let boxList = list;
+    setInterval(animateBox, 50);
+    function animateBox() {
+        for (let i = 0; i < boxList.length; i++) {
+            box = boxList[i];
+            let coordinateX = parseInt(box.style.left);
+            let coordinateY = parseInt(box.style.top);
+            let directionX = 1;
+            let directionY = 1;
             // check x coordinate
             if (coordinateX >= CONTAINER_WIDTH - BOX_WIDTH) {
                 directionX = -1;
                 coordinateX = coordinateX + SPEED * directionX;
                 box.style.left = `${coordinateX}px`;
+                // boxList[i] = box;
 
             }
             else if (coordinateX <= 0) {
                 directionX = 1;
                 coordinateX = coordinateX + SPEED * directionX;
                 box.style.left = `${coordinateX}px`;
+                // boxList[i] = box;
 
             }
 
@@ -147,23 +150,28 @@ function startApp(boxList) {
                 directionY = -1;
                 coordinateY = coordinateY + SPEED * directionY;
                 box.style.top = `${coordinateY}px`;
+                // boxList[i] = box;
+
 
             }
             else if (coordinateY <= 0) {
                 directionY = 1;
                 coordinateY = coordinateY + SPEED * directionY;
                 box.style.top = `${coordinateY}px`;
+                // boxList[i] = box;
+
 
             }
             coordinateX = coordinateX + SPEED * directionX;
             coordinateY = coordinateY + SPEED * directionY;
             box.style.left = `${coordinateX}px`;
             box.style.top = `${coordinateY}px`;
-            let isCollision = checkCollision(boxList);
+            // boxList[i] = box;
+
 
         }
-        setInterval(moveBox, 50);
     }
+
 }
 
 // check collided or not
