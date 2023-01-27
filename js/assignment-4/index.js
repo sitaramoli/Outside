@@ -2,7 +2,7 @@ const CONTAINER_WIDTH = 700;
 const CONTAINER_HEIGHT = 500;
 const BOX_WIDTH = 50;
 const BOX_HEIGHT = 50;
-const BOX_COUNT = 4;
+const BOX_COUNT = 50;
 const SPEED = 10;
 const TRANSITION_DURATION = 50;
 
@@ -68,65 +68,15 @@ function createBoxes(parent) {
         let positionX = getPosition(CONTAINER_WIDTH, BOX_WIDTH);
         let positionY = getPosition(CONTAINER_HEIGHT, BOX_HEIGHT);
 
-        if (boxList.length == 0) {
-            let box = { boxId: i + 1, positionX: positionX, positionY: positionY, directionX: 1, directionY: 1 };
-            drawBox(parent, box);
-            boxList.push(box);
+        // check if box overlaps with other boxes --optimized version
+        while (boxList.some(box => Math.abs(box.positionX - positionX) <= BOX_WIDTH && Math.abs(box.positionY - positionY) <= BOX_HEIGHT)) {
+            positionX = getPosition(CONTAINER_WIDTH, BOX_WIDTH);
+            positionY = getPosition(CONTAINER_HEIGHT, BOX_HEIGHT);
         }
 
-        else {
-            // check if box overlaps with other boxes
-            let positionXPass = false;
-            let positionYPass = false;
-            let j = 0;
-            while ((j < boxList.length) && !(positionXPass && positionYPass)) {
-                console.log("checking");
-                let anotherPositionX = boxList[j].positionX;
-                let anotherPositionY = boxList[j].positionY;
-
-                // get position x
-                if (Math.abs(anotherPositionX - positionX) <= BOX_WIDTH) {
-                    if (Math.abs(anotherPositionY - positionY) > BOX_WIDTH) {
-                        positionXPass = true;
-                    }
-                    else {
-                        positionXPass = false;
-                        positionX = getPosition(CONTAINER_WIDTH, BOX_WIDTH);
-                    }
-
-                }
-                else {
-                    positionXPass = true;
-                }
-
-                // get position y
-                if (Math.abs(anotherPositionY - positionY) <= BOX_HEIGHT) {
-                    if ((Math.abs(anotherPositionY - positionY) > BOX_HEIGHT)) {
-                        positionYPass = true;
-                    }
-                    else {
-                        positionYPass = false;
-                        positionY = getPosition(CONTAINER_HEIGHT, BOX_HEIGHT);
-                    }
-                }
-                else {
-                    positionYPass = true;
-                }
-
-                if (positionXPass && positionYPass) {
-                    j++;
-                }
-                else {
-                    j = 0;
-                }
-                positionXPass = false;
-                positionYPass = false;
-
-            }
-            let box = { boxId: i + 1, positionX: positionX, positionY: positionY, directionX: 1, directionY: 1 };
-            drawBox(parent, box);
-            boxList.push(box);
-        }
+        let box = { boxId: i + 1, positionX: positionX, positionY: positionY, directionX: 1, directionY: 1 };
+        drawBox(parent, box);
+        boxList.push(box);
     }
     return boxList;
 }
@@ -143,7 +93,7 @@ function getPosition(coordinate, boxSize) {
 }
 
 function startApp(boxList) {
-    setInterval(animateBox, TRANSITION_DURATION);
+    // setInterval(animateBox, TRANSITION_DURATION);
     function animateBox() {
 
         for (let i = 0; i < boxList.length; i++) {
