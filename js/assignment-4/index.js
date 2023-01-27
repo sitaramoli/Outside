@@ -93,7 +93,7 @@ function getPosition(coordinate, boxSize) {
 }
 
 function startApp(boxList) {
-    // setInterval(animateBox, TRANSITION_DURATION);
+    setInterval(animateBox, TRANSITION_DURATION);
     function animateBox() {
 
         for (let i = 0; i < boxList.length; i++) {
