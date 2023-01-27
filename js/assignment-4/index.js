@@ -2,8 +2,9 @@ const CONTAINER_WIDTH = 700;
 const CONTAINER_HEIGHT = 500;
 const BOX_WIDTH = 50;
 const BOX_HEIGHT = 50;
-const BOX_COUNT = 2;
+const BOX_COUNT = 4;
 const SPEED = 10;
+const TRANSITION_DURATION = 50;
 
 function main() {
     const body = document.querySelector("body");
@@ -11,8 +12,8 @@ function main() {
     startApp(boxList);
 }
 
-function initializeApp(parent) {
-    const boxContainer = createBoxContainer(parent);
+function initializeApp(body) {
+    const boxContainer = createBoxContainer(body);
     const boxList = createBoxes(boxContainer);
     return boxList;
 }
@@ -32,6 +33,31 @@ function createBoxContainer(body) {
 }
 
 /**
+ *draws a single box
+ *
+ * @param {*} parent
+ * @param {*} box
+ */
+function drawBox(parent, box) {
+    const boxElement = document.createElement("div");
+    boxElement.classList.add("box");
+    boxElement.setAttribute("id", `box-${box.boxId}`);
+    boxElement.append(`${box.boxId}`);
+    boxElement.style.height = `${BOX_HEIGHT}px`;
+    boxElement.style.width = `${BOX_WIDTH}px`;
+    boxElement.style.left = `${box.positionX}px`;
+    boxElement.style.top = `${box.positionY}px`;
+    boxElement.style.transition = `all ${TRANSITION_DURATION / 1000}s linear`;
+    parent.appendChild(boxElement);
+}
+
+function updateBox(box) {
+    let boxElement = document.querySelector(`#box-${box.boxId}`);
+    boxElement.style.left = `${box.positionX}px`;
+    boxElement.style.top = `${box.positionY}px`;
+}
+
+/**
  *creates multiple boxes
  *
  * @param {*} parent
@@ -39,72 +65,73 @@ function createBoxContainer(body) {
 function createBoxes(parent) {
     let boxList = [];
     for (let i = 0; i < BOX_COUNT; i++) {
-        const box = document.createElement("div");
-        box.classList.add("box");
-        box.setAttribute("id", `box-${i + 1}`);
-        box.append(`${i + 1}`);
-        box.style.height = `${BOX_HEIGHT}px`;
-        box.style.width = `${BOX_WIDTH}px`;
+        let positionX = getPosition(CONTAINER_WIDTH, BOX_WIDTH);
+        let positionY = getPosition(CONTAINER_HEIGHT, BOX_HEIGHT);
 
-        let topPosition = getPosition(CONTAINER_HEIGHT, BOX_HEIGHT);
-        let leftPosition = getPosition(CONTAINER_WIDTH, BOX_WIDTH);
-
-        //if generated box touches the border initially, 
-        // move one step up/down so that box will move for at least one step
-        if (topPosition == 0) {
-            topPosition = topPosition + SPEED;
-        }
-        else if (topPosition + BOX_HEIGHT == CONTAINER_HEIGHT) {
-            topPosition = topPosition - SPEED;
-        }
-        if (leftPosition == 0) {
-            leftPosition = leftPosition + SPEED;
-        }
-        else if (leftPosition + BOX_WIDTH == CONTAINER_WIDTH) {
-            leftPosition = leftPosition - SPEED;
-        }
-
-        if (boxList.length === 0) {
-            box.style.top = `${topPosition}px`;
-            box.style.left = `${leftPosition}px`;
-            parent.append(box);
-            boxList.push({ boxElement: box, positionX: leftPosition, positionY: topPosition, directionX: 1, directionY: 1 });
-
+        if (boxList.length == 0) {
+            let box = { boxId: i + 1, positionX: positionX, positionY: positionY, directionX: 1, directionY: 1 };
+            drawBox(parent, box);
+            boxList.push(box);
         }
 
         else {
             // check if box overlaps with other boxes
-            for (let j = 0; j < boxList.length - 1; j++) {
-                let leftPositionAnother = boxList[j].positionX;
-                let topPositionAnother = boxList[j].positionY;
+            let positionXPass = false;
+            let positionYPass = false;
+            let j = 0;
+            while ((j < boxList.length) && !(positionXPass && positionYPass)) {
+                console.log("checking");
+                let anotherPositionX = boxList[j].positionX;
+                let anotherPositionY = boxList[j].positionY;
 
-                // get top & left position until they do not overlap 
-                while (Math.abs(topPositionAnother - topPosition) <= BOX_HEIGHT) {
-                    if (Math.abs(leftPositionAnother - leftPosition) > BOX_WIDTH) {
-                        break;
+                // get position x
+                if (Math.abs(anotherPositionX - positionX) <= BOX_WIDTH) {
+                    if (Math.abs(anotherPositionY - positionY) > BOX_WIDTH) {
+                        positionXPass = true;
                     }
-                    topPosition = getPosition(CONTAINER_HEIGHT, BOX_HEIGHT);
+                    else {
+                        positionXPass = false;
+                        positionX = getPosition(CONTAINER_WIDTH, BOX_WIDTH);
+                    }
+
                 }
-                while (Math.abs(leftPositionAnother - leftPosition) <= BOX_WIDTH) {
-                    if (Math.abs(topPositionAnother - topPosition) > BOX_WIDTH) {
-                        break;
+                else {
+                    positionXPass = true;
+                }
+
+                // get position y
+                if (Math.abs(anotherPositionY - positionY) <= BOX_HEIGHT) {
+                    if ((Math.abs(anotherPositionY - positionY) > BOX_HEIGHT)) {
+                        positionYPass = true;
                     }
-                    leftPosition = getPosition(CONTAINER_WIDTH, BOX_WIDTH);
+                    else {
+                        positionYPass = false;
+                        positionY = getPosition(CONTAINER_HEIGHT, BOX_HEIGHT);
+                    }
+                }
+                else {
+                    positionYPass = true;
+                }
+
+                if (positionXPass && positionYPass) {
+                    j++;
+                    positionXPass = false;
+                    positionYPass = false;
+                }
+                else {
+                    j = 0;
+                    positionXPass = false;
+                    positionYPass = false;
                 }
 
             }
-            box.style.top = `${topPosition}px`;
-            box.style.left = `${leftPosition}px`;
-            parent.append(box);
-            // drawBox();
-            boxList.push({ boxElement: box, positionX: leftPosition, positionY: topPosition, directionX: 1, directionY: 1 });
+            let box = { boxId: i + 1, positionX: positionX, positionY: positionY, directionX: 1, directionY: 1 };
+            drawBox(parent, box);
+            boxList.push(box);
         }
-
     }
     return boxList;
 }
-
-// function drawBox(){}
 
 /**
  *returns a random value in the range of height/width 
@@ -117,41 +144,36 @@ function getPosition(coordinate, boxSize) {
     return Math.floor(Math.random() * (coordinate - boxSize) / SPEED) * SPEED;
 }
 
-function startApp(list) {
-    let boxList = list;
-    setInterval(animateBox, 50);
+function startApp(boxList) {
+    // setInterval(animateBox, TRANSITION_DURATION);
     function animateBox() {
-        debugger;
 
         for (let i = 0; i < boxList.length; i++) {
             box = boxList[i];
-            let coordinateX = box.positionX;
-            let coordinateY = box.positionY;
+            let newPositionX = box.positionX;
+            let newPositionY = box.positionY;
 
             // check x coordinate
-            if (coordinateX >= CONTAINER_WIDTH - BOX_WIDTH) {
+            if (newPositionX >= CONTAINER_WIDTH - BOX_WIDTH) {
                 box.directionX = -1;
             }
-            else if (coordinateX <= 0) {
+            else if (newPositionX <= 0) {
                 box.directionX = 1;
             }
 
             // check y coordinate
-            if (coordinateY >= CONTAINER_HEIGHT - BOX_HEIGHT) {
+            if (newPositionY >= CONTAINER_HEIGHT - BOX_HEIGHT) {
                 box.directionY = -1;
             }
-            else if (coordinateY <= 0) {
+            else if (newPositionY <= 0) {
                 box.directionY = 1;
             }
-            coordinateX = coordinateX + SPEED * box.directionX;
-            coordinateY = coordinateY + SPEED * box.directionY;
-            box.positionX = coordinateX;
-            box.positionY = coordinateY;
-            box.boxElement.style.left = `${coordinateX}px`;
-            box.boxElement.style.top = `${coordinateY}px`;
-            // boxList[i] = box;
-
-
+            newPositionX = newPositionX + SPEED * box.directionX;
+            newPositionY = newPositionY + SPEED * box.directionY;
+            box.positionX = newPositionX;
+            box.positionY = newPositionY;
+            updateBox(box);
+            checkCollision(boxList);
         }
     }
 
