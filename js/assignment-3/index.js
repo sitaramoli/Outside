@@ -1,10 +1,10 @@
 // 
 function startCarousel() {
-    let carouselContainer = document.querySelector(".carousel-container");
-    let carouselImageWrapper = document.querySelector(".carousel-image-wrapper");
+    const HOLDING_TIME = 4000; /*in milliseconds*/
+    const carouselContainer = document.querySelector(".carousel-container");
+    const carouselImageWrapper = document.querySelector(".carousel-image-wrapper");
     let currentIndex = 1;
     let slideLength = carouselImageWrapper.children.length;
-    let holdingTime = 4000; /*in milliseconds*/
 
     // control buttons
     function createCarouselButtons() {
@@ -44,7 +44,7 @@ function startCarousel() {
     // periodic slide
     function startPeriodicSlide() {
         showNextSlide();
-        setTimeout(startPeriodicSlide, holdingTime);
+        setTimeout(startPeriodicSlide, HOLDING_TIME);
     }
 
     // indicator slide
@@ -83,7 +83,7 @@ function startCarousel() {
 
     createCarouselIndicators();
     createCarouselButtons();
-    setTimeout(startPeriodicSlide,holdingTime); /*start slide first time after holdingTime*/ 
+    setTimeout(startPeriodicSlide,HOLDING_TIME); /*start slide first time after holdingTime*/ 
 }
 
 startCarousel();
