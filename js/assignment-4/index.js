@@ -2,9 +2,9 @@ const CONTAINER_WIDTH = 700;
 const CONTAINER_HEIGHT = 500;
 const BOX_WIDTH = 50;
 const BOX_HEIGHT = 50;
-const BOX_COUNT = 50;
+const BOX_COUNT = 4;
 const SPEED = 10;
-const TRANSITION_DURATION = 50;
+const TRANSITION_DURATION = 70;
 
 function main() {
     const body = document.querySelector("body");
@@ -53,6 +53,8 @@ function drawBox(parent, box) {
 
 function updateBox(box) {
     let boxElement = document.querySelector(`#box-${box.boxId}`);
+    box.positionX = box.positionX + SPEED * box.directionX;
+    box.positionY = box.positionY + SPEED * box.directionY;
     boxElement.style.left = `${box.positionX}px`;
     boxElement.style.top = `${box.positionY}px`;
 }
@@ -75,8 +77,8 @@ function createBoxes(parent) {
         }
 
         let box = { boxId: i + 1, positionX: positionX, positionY: positionY, directionX: 1, directionY: 1 };
-        drawBox(parent, box);
         boxList.push(box);
+        drawBox(parent, box);
     }
     return boxList;
 }
@@ -98,38 +100,42 @@ function startApp(boxList) {
 
         for (let i = 0; i < boxList.length; i++) {
             box = boxList[i];
-            let newPositionX = box.positionX;
-            let newPositionY = box.positionY;
 
             // check x coordinate
-            if (newPositionX >= CONTAINER_WIDTH - BOX_WIDTH) {
+            if (box.positionX >= CONTAINER_WIDTH - BOX_WIDTH) {
                 box.directionX = -1;
             }
-            else if (newPositionX <= 0) {
+            else if (box.positionX <= 0) {
                 box.directionX = 1;
             }
 
             // check y coordinate
-            if (newPositionY >= CONTAINER_HEIGHT - BOX_HEIGHT) {
+            if (box.positionY >= CONTAINER_HEIGHT - BOX_HEIGHT) {
                 box.directionY = -1;
             }
-            else if (newPositionY <= 0) {
+            else if (box.positionY <= 0) {
                 box.directionY = 1;
             }
-            newPositionX = newPositionX + SPEED * box.directionX;
-            newPositionY = newPositionY + SPEED * box.directionY;
-            box.positionX = newPositionX;
-            box.positionY = newPositionY;
+            checkCollision(box, boxList);
             updateBox(box);
-            checkCollision(boxList);
         }
     }
-
 }
 
 // check collided or not
-function checkCollision(boxList) {
-
+function checkCollision(box, boxList) {
+    for (let i = 0; i < boxList.length; i++) {
+        //do not check with box itself
+        if (box.boxId === boxList[i].boxId) {
+            continue;
+        }
+        if (Math.abs(box.positionY - boxList[i].positionY) <= BOX_HEIGHT && Math.abs(box.positionX - boxList[i].positionX) <= BOX_WIDTH) {
+            box.directionX = - box.directionX;
+            box.directionY = - box.directionY;
+            boxList[i].directionX = - boxList[i].directionX;
+            boxList[i].directionY = - boxList[i].directionY;
+        }
+    }
 }
 
 main();
