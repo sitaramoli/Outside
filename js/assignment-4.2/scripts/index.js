@@ -5,6 +5,8 @@ const BOX_HEIGHT = 50;
 const BOX_COUNT = 4;
 const SPEED = 2;
 let boxList = [];
+let img = new Image();
+img.src = 'assets/ant.png';
 
 class Box {
     constructor(x, y, vx, vy, id) {
@@ -20,8 +22,6 @@ class Box {
         ctx.fillStyle = `#fff`;
         ctx.fillRect(this.x, this.y, BOX_WIDTH, BOX_HEIGHT);
         //draw img on top of box
-        let img = new Image();
-        img.src = 'assets/ant.png';
         ctx.drawImage(img, this.x, this.y, BOX_WIDTH, BOX_HEIGHT);
     }
     updateBox() {
