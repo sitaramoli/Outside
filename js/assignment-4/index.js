@@ -130,10 +130,62 @@ function checkCollision(box, boxList) {
             continue;
         }
         if (Math.abs(box.positionY - boxList[i].positionY) <= BOX_HEIGHT && Math.abs(box.positionX - boxList[i].positionX) <= BOX_WIDTH) {
-            box.directionX = - box.directionX;
-            box.directionY = - box.directionY;
-            boxList[i].directionX = - boxList[i].directionX;
-            boxList[i].directionY = - boxList[i].directionY;
+            if (box.positionX === boxList[i].positionX) {
+                box.directionX = 0;
+                boxList[i].directionX = 0;
+                if (box.positionY < boxList[i].positionY) {
+                    box.directionY = - 1;
+                    boxList[i].directionY = 1;
+                }
+                else {
+                    box.directionY = 1;
+                    boxList[i].directionY = -1;
+                }
+
+
+            }
+            else if (box.positionY === boxList[i].positionY) {
+                box.directionY = 0;
+                boxList[i].directionY = 0;
+                if (box.positionX < boxList[i].x) {
+                    box.directionX = - 1;
+                    boxList[i].directionX = 1;
+                }
+                else {
+                    box.directionX = 1;
+                    boxList[i].directionX = - 1;
+                }
+            }
+
+            else if (box.positionX < boxList[i].positionX) {
+                if (box.positionY < boxList[i].positionY) {
+                    box.directionX = -1;
+                    box.directionY = -1;
+                    boxList[i].directionX = 1;
+                    boxList[i].directionY = 1;
+                }
+                else {
+                    box.directionX = -1;
+                    box.directionY = 1;
+                    boxList[i].directionX = 1;
+                    boxList[i].directionY = -1;
+                }
+            }
+
+            else {
+                if (box.positionY < boxList[i].positionY) {
+                    box.directionX = 1;
+                    box.directionY = -1;
+                    boxList[i].directionX = -1;
+                    boxList[i].directionY = 1;
+                }
+                else {
+                    box.directionX = 1;
+                    box.directionY = 1;
+                    boxList[i].directionX = -1;
+                    boxList[i].directionY = -1;
+                }
+            }
         }
     }
 }

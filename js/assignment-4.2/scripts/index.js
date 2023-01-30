@@ -2,22 +2,22 @@ const CANVAS_WIDTH = 700;
 const CANVAS_HEIGHT = 500;
 const BOX_WIDTH = 50;
 const BOX_HEIGHT = 50;
-const BOX_COUNT = 4;
+const BOX_COUNT = 5;
 const SPEED = 2;
 let boxList = [];
 let img = new Image();
 img.src = 'assets/ant.png';
 
 class Box {
-    constructor(x, y, vx, vy, id) {
+    constructor(x, y, speed, dx, dy, id) {
         this.x = x;
         this.y = y;
-        this.vx = vx;
-        this.vy = vy;
+        this.speed = speed;
+        this.dx = dx;
+        this.dy = dy;
         this.id = id;
     }
     drawBox(ctx) {
-        debugger;
         ctx.beginPath();
         ctx.fillStyle = `#fff`;
         ctx.fillRect(this.x, this.y, BOX_WIDTH, BOX_HEIGHT);
@@ -25,14 +25,20 @@ class Box {
         ctx.drawImage(img, this.x, this.y, BOX_WIDTH, BOX_HEIGHT);
     }
     updateBox() {
-        if (this.x <= 0 || this.x + BOX_WIDTH >= CANVAS_WIDTH) {
-            this.vx = - this.vx;
+        if (this.x <= 0) {
+            this.dx = 1;
         }
-        if (this.y <= 0 || this.y + BOX_HEIGHT >= CANVAS_HEIGHT) {
-            this.vy = - this.vy
+        else if (this.x + BOX_WIDTH >= CANVAS_WIDTH) {
+            this.dx = - 1;
         }
-        this.x += this.vx;
-        this.y += this.vy;
+        if (this.y <= 0) {
+            this.dy = 1;
+        }
+        else if (this.y + BOX_HEIGHT >= CANVAS_HEIGHT) {
+            this.dy = - 1;
+        }
+        this.x += this.dx * this.speed;
+        this.y += this.dy * this.speed;
     }
 }
 
@@ -52,6 +58,7 @@ function main() {
             if (x >= boxList[i].x && x <= boxList[i].x + BOX_WIDTH && y >= boxList[i].y && y <= boxList[i].y + BOX_HEIGHT) {
                 ctx.clearRect(boxList[i].x, boxList[i].y, BOX_WIDTH, BOX_HEIGHT);
                 boxList.splice(i, 1);
+
             }
         }
     });
@@ -66,7 +73,7 @@ function initializeApp() {
             x = getPosition(CANVAS_WIDTH, BOX_WIDTH);
             y = getPosition(CANVAS_HEIGHT, BOX_HEIGHT);
         }
-        let box = new Box(x, y, SPEED, SPEED, i + 1);
+        let box = new Box(x, y, SPEED, 1, 1, i + 1);
         boxList.push(box);
     }
 }
@@ -109,10 +116,62 @@ function checkCollision(box) {
             continue;
         }
         if (Math.abs(box.y - boxList[i].y) <= BOX_HEIGHT && Math.abs(box.x - boxList[i].x) <= BOX_WIDTH) {
-            box.vx = - box.vx;
-            box.vy = - box.vy;
-            boxList[i].vx = - boxList[i].vx;
-            boxList[i].vy = - boxList[i].vy;
+            if (box.x === boxList[i].x) {
+                box.dx = 0;
+                boxList[i].dx = 0;
+                if (box.y < boxList[i].y) {
+                    box.dy = - 1;
+                    boxList[i].dy = 1;
+                }
+                else {
+                    box.dy = 1;
+                    boxList[i].dy = -1;
+                }
+
+
+            }
+            else if (box.y === boxList[i].y) {
+                box.dy = 0;
+                boxList[i].dy = 0;
+                if (box.x < boxList[i].x) {
+                    box.dx = - 1;
+                    boxList[i].dx = 1;
+                }
+                else {
+                    box.dx = 1;
+                    boxList[i].dx = - 1;
+                }
+            }
+
+            else if (box.x < boxList[i].x) {
+                if (box.y < boxList[i].y) {
+                    box.dx = -1;
+                    box.dy = -1;
+                    boxList[i].dx = 1;
+                    boxList[i].dy = 1;
+                }
+                else {
+                    box.dx = -1;
+                    box.dy = 1;
+                    boxList[i].dx = 1;
+                    boxList[i].dy = -1;
+                }
+            }
+
+            else {
+                if (box.y < boxList[i].y) {
+                    box.dx = 1;
+                    box.dy = -1;
+                    boxList[i].dx = -1;
+                    boxList[i].dy = 1;
+                }
+                else {
+                    box.dx = 1;
+                    box.dy = 1;
+                    boxList[i].dx = -1;
+                    boxList[i].dy = -1;
+                }
+            }
         }
     }
 }
