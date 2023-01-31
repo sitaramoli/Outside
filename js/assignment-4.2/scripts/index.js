@@ -6,7 +6,7 @@ const BOX_COUNT = 5;
 const SPEED = 2;
 let boxList = [];
 let img = new Image();
-img.src = 'assets/ant.png';
+img.src = 'assets/ant-file.png';
 
 class Box {
     constructor(x, y, speed, dx, dy, id) {
@@ -22,7 +22,30 @@ class Box {
         ctx.fillStyle = `#fff`;
         ctx.fillRect(this.x, this.y, BOX_WIDTH, BOX_HEIGHT);
         //draw img on top of box
-        ctx.drawImage(img, this.x, this.y, BOX_WIDTH, BOX_HEIGHT);
+        if (this.dx === 1 && this.dy === 0) {
+            ctx.drawImage(img, 0, 0, 370, 345, this.x, this.y, BOX_WIDTH, BOX_HEIGHT);
+        }
+        else if (this.dx === 1 && this.dy === 1) {
+            ctx.drawImage(img, 385, 0, 370, 345, this.x, this.y, BOX_WIDTH, BOX_HEIGHT);
+        }
+        else if (this.dx === 0 && this.dy === 1) {
+            ctx.drawImage(img, 740, 0, 380, 340, this.x, this.y, BOX_WIDTH, BOX_HEIGHT);
+        }
+        else if (this.dx === -1 && this.dy === 1) {
+            ctx.drawImage(img, 1100, 0, 400, 380, this.x, this.y, BOX_WIDTH, BOX_HEIGHT);
+        }
+        else if (this.dx === -1 && this.dy === 0) {
+            ctx.drawImage(img, 1500, 0, 400, 340, this.x, this.y, BOX_WIDTH, BOX_HEIGHT);
+        }
+        else if (this.dx === -1 && this.dy === -1) {
+            ctx.drawImage(img, 0, 380, 400, 400, this.x, this.y, BOX_WIDTH, BOX_HEIGHT);
+        }
+        else if (this.dx === 0 && this.dy === -1) {
+            ctx.drawImage(img, 400, 380, 340, 360, this.x, this.y, BOX_WIDTH, BOX_HEIGHT);
+        }
+        else if (this.dx === 1 && this.dy === -1) {
+            ctx.drawImage(img, 730, 370, 410, 380, this.x, this.y, BOX_WIDTH, BOX_HEIGHT);
+        }
     }
     updateBox() {
         if (this.x <= 0) {

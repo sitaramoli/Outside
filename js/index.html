@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript</title>
     <style>
-        .title{
+        .title {
             text-align: center;
             font-size: 50px;
             margin: 0;
             color: #525554;
         }
-        .header{
+
+        .header {
             text-align: center;
             text-transform: uppercase;
         }
-        .card-container{
+
+        .card-container {
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
             align-items: center;
             justify-content: center;
         }
-        .card{
+
+        .card {
             width: 200px;
             min-height: 300px;
             background-color: #f0eded;
@@ -34,11 +38,13 @@
             gap: 2rem;
             padding: 2rem;
         }
-        .card:hover{
+
+        .card:hover {
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
         }
-        .button{
+
+        .button {
             background-color: #04aa6d;
             text-decoration: none;
             text-align: center;
@@ -48,14 +54,16 @@
             font-weight: 600;
             border-radius: 20px;
         }
-        .button:hover{
+
+        .button:hover {
             background-color: #038857;
         }
     </style>
 </head>
+
 <body>
     <header class="header">
-        <h1 >
+        <h1>
             Javascript
         </h1>
     </header>
@@ -63,115 +71,129 @@
     </main>
     <script>
         const assignmentList = [
-        {
+            {
                 title: "Profile",
-                code:{
-                    class:"button",
-                    href:"https://github.com/sitaramoli/Outside/",
-                    target:"_blank"
+                code: {
+                    class: "button",
+                    href: "https://github.com/sitaramoli/Outside/",
+                    target: "_blank"
                 },
-                demo:{
+                demo: {
                     class: "button",
                     href: "https://sitaramoli.github.io/Outside/",
-                    target:"_blank"
+                    target: "_blank"
                 }
             },
             {
                 title: "Password Generator",
-                code:{
-                    class:"button",
-                    href:"https://github.com/sitaramoli/Outside/tree/main/js/assignment-1",
-                    target:"_blank"
+                code: {
+                    class: "button",
+                    href: "https://github.com/sitaramoli/Outside/tree/main/js/assignment-1",
+                    target: "_blank"
                 },
-                demo:{
+                demo: {
                     class: "button",
                     href: "assignment-1/",
-                    target:"_blank"
+                    target: "_blank"
                 }
             },
             {
                 title: "Digital Clock",
-                code:{
-                    class:"button",
-                    href:"https://github.com/sitaramoli/Outside/tree/main/js/assignment-2",
-                    target:"_blank"
+                code: {
+                    class: "button",
+                    href: "https://github.com/sitaramoli/Outside/tree/main/js/assignment-2",
+                    target: "_blank"
                 },
-                demo:{
+                demo: {
                     class: "button",
                     href: "assignment-2/",
-                    target:"_blank"
+                    target: "_blank"
                 }
             },
             {
                 title: "Image Carousel",
-                code:{
-                    class:"button",
-                    href:"https://github.com/sitaramoli/Outside/tree/main/js/assignment-3",
-                    target:"_blank"
+                code: {
+                    class: "button",
+                    href: "https://github.com/sitaramoli/Outside/tree/main/js/assignment-3",
+                    target: "_blank"
                 },
-                demo:{
+                demo: {
                     class: "button",
                     href: "assignment-3/",
-                    target:"_blank"
+                    target: "_blank"
                 }
             }
             ,
             {
                 title: "Box Collision",
-                code:{
-                    class:"button",
-                    href:"https://github.com/sitaramoli/Outside/tree/main/js/assignment-4",
-                    target:"_blank"
+                code: {
+                    class: "button",
+                    href: "https://github.com/sitaramoli/Outside/tree/main/js/assignment-4",
+                    target: "_blank"
                 },
-                demo:{
+                demo: {
                     class: "button",
                     href: "assignment-4/",
-                    target:"_blank"
+                    target: "_blank"
                 }
             }
             ,
             {
                 title: "Ant Smasher",
-                code:{
-                    class:"button",
-                    href:"https://github.com/sitaramoli/Outside/tree/main/js/assignment-4.2",
-                    target:"_blank"
+                code: {
+                    class: "button",
+                    href: "https://github.com/sitaramoli/Outside/tree/main/js/assignment-4.2",
+                    target: "_blank"
                 },
-                demo:{
+                demo: {
                     class: "button",
                     href: "assignment-4.2/",
-                    target:"_blank"
+                    target: "_blank"
+                }
+            }
+            ,
+            {
+                title: "Car Game",
+                code: {
+                    class: "button",
+                    href: "https://github.com/sitaramoli/Outside/tree/main/js/assignment-5",
+                    target: "_blank"
+                },
+                demo: {
+                    class: "button",
+                    href: "assignment-5/",
+                    target: "_blank"
                 }
             }
         ];
 
         let main = document.getElementById("main");
         let cardContainer = document.createElement("div");
-        cardContainer.setAttribute("class","card-container");
+        cardContainer.setAttribute("class", "card-container");
         main.appendChild(cardContainer);
 
         for (let i = 0; i < assignmentList.length; i++) {
             const element = assignmentList[i];
 
             let card = document.createElement("div");
-            card.setAttribute("class","card");
+            card.setAttribute("class", "card");
             cardContainer.appendChild(card);
 
             let title = document.createElement("h2");
-            title.setAttribute("class","title");
+            title.setAttribute("class", "title");
             let titleText = document.createTextNode(element.title);
             title.appendChild(titleText);
             card.appendChild(title);
 
 
             let code = document.createElement("a");
-            Object.keys(element.code).forEach(key=>code.setAttribute(key,element.code[key]));
+            Object.keys(element.code).forEach(key => code.setAttribute(key, element.code[key]));
             card.appendChild(code);
             let codeText = document.createTextNode("Code");
             code.appendChild(codeText);
-            
+
             let demo = document.createElement("a");
-            Object.keys(element.code).forEach(key=>demo.setAttribute(key,element.demo[key]));
+            Object.keys(element.code).forEach(key => demo.setAttribute(key, element.demo[key]));
             card.appendChild(demo);
             let demoText = document.createTextNode("Demo");
             demo.appendChild(demoText);
@@ -180,4 +202,5 @@
 
     </script>
 </body>
+
 </html>
