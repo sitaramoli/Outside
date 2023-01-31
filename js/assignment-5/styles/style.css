@@ -4,22 +4,37 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #3e3f3e;
+}
+
 .start-menu {
     background-color: #04a96c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+#start-btn{
+    cursor: pointer;
+    background-color: #572654;
+    color: #fff;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 900;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-shadow: 5px 5px rgb(199, 92, 92);
 }
 
 #canvas {
+    display: none;
     background-color: #04a96c;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-#game-img {
-    display: none;
 }
