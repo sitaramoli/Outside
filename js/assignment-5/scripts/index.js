@@ -3,7 +3,8 @@ const GAME_WIDTH = 300;
 const GAME_HEIGHT = 400;
 const ROAD_GAP = 3;
 const CAR_WIDTH = (GAME_WIDTH - ROAD_GAP * 2) / 3;
-const CAR_HEIGHT = 50;
+const CAR_HEIGHT = 80;
+const OBSTACLE_HEIGHT = 50;
 class InputHandler {
     constructor(game) {
         this.game = game;
@@ -25,7 +26,7 @@ class Obstacle {
         this.game = game;
         this.currentLane = currentLane;
         this.width = CAR_WIDTH;
-        this.height = CAR_HEIGHT;
+        this.height = OBSTACLE_HEIGHT;
         this.x = Math.floor(currentLane * this.game.width / 3 + currentLane * ROAD_GAP);
         this.y = -Math.floor(Math.random() * this.game.height * .5);
         this.speed = Math.floor(Math.random() * 5 + 3);
@@ -84,8 +85,7 @@ class Car {
 
     }
     draw(context) {
-        context.fillStyle = `#ff0000`;
-        context.fillRect(this.x, this.y, this.width, this.height);
+        context.drawImage(this.game.image, 1225, 0, 210, 225, this.x, this.y, this.width, this.height);
     }
 }
 
@@ -133,7 +133,7 @@ class Game {
         this.height = height;
         this.image = image;
         this.car = new Car(this);
-        this.obstacle = new Obstacle(this, Math.floor(Math.random() * 2));
+        // this.obstacle = new Obstacle(this, Math.floor(Math.random() * 2));
         this.input = new InputHandler(this);
         this.road = new Road(this);
         this.ui = new UI(this);
@@ -145,15 +145,31 @@ class Game {
 
     update() {
         this.car.update();
-        this.obstacle.update();
-        if (this.checkCollision(this.car, this.obstacle)) {
-            this.isGameOver = true;
+        this.obstaclesList.forEach(obstacle => {
+            obstacle.update();
+        });
+        this.obstaclesList.forEach(obstacle => {
+            if (this.checkCollision(this.car, obstacle)) {
+                this.isGameOver = true;
+            }
+        });
+        // this.obstacle.update();
+        // if (this.checkCollision(this.car, this.obstacle)) {
+        //     this.isGameOver = true;
+        // }
+    }
+    generateObstacles() {
+        for (let i = 0; i < 3; i++) {
+            this.obstaclesList.push(new Obstacle(this, Math.floor(Math.random() * 2)));
         }
     }
 
     draw(context) {
         this.road.draw(context);
-        this.obstacle.draw(context);
+        this.obstaclesList.forEach(obstacle => {
+            obstacle.draw(context);
+        });
+        // this.obstacle.draw(context);
         this.car.draw(context);
         this.ui.draw(context);
     }
@@ -192,6 +208,8 @@ function main() {
     });
 
     const game = new Game(canvas.width, canvas.height, sprite);
+    console.log(game.obstaclesList);
+    game.generateObstacles();
     function animate() {
         if (!game.isGameOver) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
