@@ -66,7 +66,7 @@ class Car {
                 this.x += (this.game.width / 3) + ROAD_GAP;
                 this.currentLane = 2;
             }
-            else if (this.currentLane === 2) {
+            else {
                 this.x += (this.game.width / 3) + ROAD_GAP * 2;
                 this.currentLane = 3;
             }
@@ -76,7 +76,7 @@ class Car {
                 this.x += -(this.game.width / 3) - ROAD_GAP * 2;
                 this.currentLane = 2;
             }
-            else if (this.currentLane === 2) {
+            else {
                 this.x += -(this.game.width / 3) - ROAD_GAP;
                 this.currentLane = 1;
             }
@@ -120,7 +120,7 @@ class UI {
             context.fillText(gameOverText, this.game.width * .5, this.game.height * .5);
             context.fillStyle = `#fff`;
             context.font = '20px Arial';
-            context.fillText(scoreText, this.game.width * .5, this.game.height * .5 + 20);
+            context.fillText("Your score: "+scoreText, this.game.width * .5, this.game.height * .5 + 20);
             context.fillText("Press Enter to start the game", this.game.width * .5, this.game.height * .5 + 40);
         }
         context.restore();
@@ -133,7 +133,6 @@ class Game {
         this.height = height;
         this.image = image;
         this.car = new Car(this);
-        // this.obstacle = new Obstacle(this, Math.floor(Math.random() * 2));
         this.input = new InputHandler(this);
         this.road = new Road(this);
         this.ui = new UI(this);
@@ -153,10 +152,6 @@ class Game {
                 this.isGameOver = true;
             }
         });
-        // this.obstacle.update();
-        // if (this.checkCollision(this.car, this.obstacle)) {
-        //     this.isGameOver = true;
-        // }
     }
     generateObstacles() {
         for (let i = 0; i < 3; i++) {
@@ -169,7 +164,6 @@ class Game {
         this.obstaclesList.forEach(obstacle => {
             obstacle.draw(context);
         });
-        // this.obstacle.draw(context);
         this.car.draw(context);
         this.ui.draw(context);
     }
