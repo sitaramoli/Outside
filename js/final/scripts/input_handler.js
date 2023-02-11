@@ -5,14 +5,9 @@ export class InputHandler {
         window.addEventListener('keydown', (event) => {
             switch (this.game.state) {
                 case "PLAY":
-                    if ((event.key === "ArrowLeft" || event.key === "ArrowRight") && this.game.keys.indexOf(event.key) === -1) {
+                    if ((event.key === "ArrowLeft" || event.key === "ArrowRight" || event.key === " " || event.key === "Escape")
+                        && this.game.keys.indexOf(event.key) === -1) {
                         this.game.keys.push(event.key);
-                    }
-                    else if (event.key === " ") {
-                        this.game.player.fireBullet();
-                    }
-                    else if (event.key === "Escape") {
-                        this.game.pauseGame();
                     }
                     break;
 
@@ -22,7 +17,6 @@ export class InputHandler {
                     }
                     break;
             }
-            console.log(this.game.keys);
         });
 
         // remove the released key from the keys list
@@ -33,20 +27,26 @@ export class InputHandler {
             }
         });
 
-        window.addEventListener('click', () => {
-            switch (this.game.state) {
-                case "START":
-                    this.game.playGame();
-                    break;
-                case "PLAY":
-                    this.game.pauseGame();
-                    break;
-                case "PAUSE":
-                    this.game.resumeGame();
-                    break;
-                case "OVER":
-                    this.game.playGame();
-            }
+        // start menu
+        const startButton = document.getElementById('start-btn');
+        startButton.addEventListener('click', () => {
+            this.game.playGame();
+        });
+
+        // pause menu
+        const resumeButton = document.getElementById('resume-btn');
+        resumeButton.addEventListener('click', () => {
+            this.game.resumeGame();
+        });
+        const restartButton = document.getElementById('restart-btn');
+        restartButton.addEventListener('click', () => {
+            this.game.restartGame();
+        });
+
+        // over menu
+        const playAgainButton = document.getElementById('play-again-btn');
+        playAgainButton.addEventListener('click', () => {
+            this.game.restartGame();
         });
     }
 }

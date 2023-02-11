@@ -8,12 +8,113 @@ body {
     background-color: #464545;
 }
 
-#canvas {
+.center {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+#loading-screen {
+    display: block;
+    background-image: url('../assets/sprites/loading-img.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.loading-screen-container {
+    height: 600px;
+    width: 800px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-message {
+    font-family: 'Shadows Into Light';
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: white;
+    font-weight: 800;
+    font-size: 25px;
+}
+
+.loading-bar-wrapper {
+    padding: 2px;
+    background-color: white;
     width: 400px;
-    height: 500px;
+}
+
+#loading-bar {
+    background-color: green;
+    height: 20px;
+
+}
+
+#canvas {
+    display: none;
     background-color: #d4d0d0;
+}
+
+.btn {
+    cursor: pointer;
+    font-family: 'Shadows Into Light';
+    text-transform: uppercase;
+    background-color: #963f8a;
+    letter-spacing: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-weight: 800;
+    font-size: 25px;
+    box-shadow: 2px 2px 5px #d4d0d0;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 800px;
+    height: 600px;
+}
+
+#start-menu {
+    display: none;
+}
+
+#pause-menu {
+    display: none;
+}
+
+#over-menu {
+    display: none;
+}
+
+.score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Shadows Into Light';
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.game-over-text {
+    font-family: 'Shadows Into Light';
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    color: red;
+    font-size: 40px;
+    font-weight: 800;
 }

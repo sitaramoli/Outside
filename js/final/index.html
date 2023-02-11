@@ -5,12 +5,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Shadows+Into+Light">
     <link rel="stylesheet" href="./styles/style.css">
     <title>Galaxy Attack : Alien Shooter</title>
 </head>
 
 <body>
-    <canvas id="canvas"></canvas>
+    <div id="loading-screen" class="center">
+        <div class="loading-screen-container">
+            <span class="loading-message"> Loading...</span>
+            <div class="loading-bar-wrapper">
+                <div id="loading-bar"></div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <canvas id="canvas" class="center"></canvas>
+
+    <div id="start-menu" class="center">
+        <div class="menu-container">
+            <div id="start-btn" class="btn">start</div>
+        </div>
+    </div>
+
+    <div id="pause-menu" class="center">
+        <div class="menu-container">
+            <div id="resume-btn" class="btn">resume</div>
+            <div id="restart-btn" class="btn">restart</div>
+        </div>
+    </div>
+
+    <div id="over-menu" class="center">
+        <div class="menu-container">
+            <div class="game-over-text">Game Over</div>
+            <div class="score-container">
+                Your score
+                <div id="score"></div>
+
+            </div>
+            <div class="score-container">
+                High Score
+                <div id="high-score"></div>
+            </div>
+            <div id="play-again-btn" class="btn">play again</div>
+        </div>
+    </div>
     <script src="scripts/index.js" type="module"></script>
 </body>
 

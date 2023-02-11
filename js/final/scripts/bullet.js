@@ -1,11 +1,12 @@
-const BULLET_WIDTH = 10;
-const BULLET_HEIGHT = 20;
-const PLAYER_BULLET_SPEED = 15;
+const BULLET_WIDTH = 15;
+const BULLET_HEIGHT = 40;
+const PLAYER_BULLET_SPEED = 13;
 const ENEMY_BULLET_SPEED = 5;
+const BULLET_DAMAGE = 5;
 
 
 export class Bullet {
-    constructor(game, x, y, isPlayer) {
+    constructor(game, x, y, isPlayer, doubleDamage) {
         this.game = game;
         this.width = BULLET_WIDTH;
         this.height = BULLET_HEIGHT;
@@ -14,13 +15,35 @@ export class Bullet {
         this.isPlayer = isPlayer;
         this.speed = this.isPlayer ? PLAYER_BULLET_SPEED : ENEMY_BULLET_SPEED;
         this.isOutOfBound = false;
+        this.isHit = false;
+        this.damage = BULLET_DAMAGE;
+        this.doubleDamage = doubleDamage
     }
 
+    /**
+     *draw bullet
+     *
+     * @param {*} context
+     * @memberof Bullet
+     */
     draw(context) {
-        context.fillStyle = `#ff0000`;
-        context.fillRect(this.x, this.y, this.width, this.height);
+
+        if (this.isPlayer && !this.doubleDamage) {
+            context.drawImage(this.game.sprites.playerBullet, this.x, this.y, this.width, this.height);
+        }
+        else if (this.isPlayer && this.doubleDamage) {
+            context.drawImage(this.game.sprites.doubleBullet, this.x, this.y, this.width, this.height);
+        }
+        else {
+            context.drawImage(this.game.sprites.enemyBullet, this.x, this.y, this.width, this.height);
+        }
     }
 
+    /**
+     *update bullet
+     *
+     * @memberof Bullet
+     */
     update() {
         if (this.isPlayer) {
             this.y -= this.speed;
