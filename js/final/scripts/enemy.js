@@ -40,6 +40,7 @@ export class Enemy {
             this.speedX = ENEMY_SPEED;
         }
 
+        // change direction of enemy when horizontal boundary is touched
         if (this.x <= 0) {
             this.directionX = 1;
             this.speedY = 1;
@@ -48,6 +49,8 @@ export class Enemy {
             this.directionX = -1;
             this.speedY = 1;
         }
+
+        // move enemy downwards when boundary touched
         if (this.speedY === 1) {
             if (this.speedYTimer < this.speedYInterval) {
                 this.y += this.speedY;
@@ -60,11 +63,6 @@ export class Enemy {
             }
         }
         this.x += this.speedX * this.directionX;
-
-        // check if enemy escapes from the bottom
-        if (this.y >= this.game.height) {
-            this.game.state = 'OVER';
-        }
 
 
         // fire bullet

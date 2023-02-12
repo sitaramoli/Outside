@@ -45,17 +45,9 @@ export class Bullet {
      * @memberof Bullet
      */
     update() {
-        if (this.isPlayer) {
-            this.y -= this.speed;
-            if (this.y < 0) {
-                this.isOutOfBound = true;
-            }
-        }
-        else {
-            this.y += this.speed;
-            if (this.y > this.game.height) {
-                this.isOutOfBound = true;
-            }
+        this.y += this.isPlayer ? -this.speed : this.speed;
+        if (this.y < 0 || this.y > this.game.height) {
+            this.isOutOfBound = true;
         }
     }
 }
