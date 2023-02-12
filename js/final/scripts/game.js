@@ -319,24 +319,36 @@ export class Game {
             switch (level) {
                 case 1:
                     this.enemyInterval = 6000;
+                    this.bulletCoinInterval = 12000;
+                    this.healthCoinInterval = 22000;
+                    this.doubleDamageCoinInterval = 30000;
                     this.enemies.forEach(enemy => {
                         enemy.speedX = 4;
                     });
                     break;
                 case 2:
                     this.enemyInterval = 5000;
+                    this.bulletCoinInterval = 10000;
+                    this.healthCoinInterval = 19000;
+                    this.doubleDamageCoinInterval = 25000;
                     this.enemies.forEach(enemy => {
                         enemy.speedX = 5;
                     });
                     break;
                 case 3:
                     this.enemyInterval = 4000;
+                    this.bulletCoinInterval = 8000;
+                    this.healthCoinInterval = 16000;
+                    this.doubleDamageCoinInterval = 20000;
                     this.enemies.forEach(enemy => {
                         enemy.speedX = 6;
                     });
                     break;
                 default:
                     this.enemyInterval = 2000;
+                    this.bulletCoinInterval = 6000;
+                    this.healthCoinInterval = 13000;
+                    this.doubleDamageCoinInterval = 18000;
                     this.enemies.forEach(enemy => {
                         enemy.speedX = 7;
                     });

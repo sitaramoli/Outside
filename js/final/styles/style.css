@@ -51,6 +51,7 @@ body {
 #loading-bar {
     background-color: green;
     height: 20px;
+    width: 0;
 
 }
 
