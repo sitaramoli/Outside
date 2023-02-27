@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>React</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database</title>
     <style>
         .title {
             text-align: center;
@@ -29,7 +29,6 @@
 
         .card {
             min-width: 150px;
-            max-width: 250px;
             background-color: #f0eded;
             display: flex;
             border-radius: 1rem;
@@ -41,6 +40,7 @@
 
         .card:hover {
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
         }
 
         .button {
@@ -62,38 +62,40 @@
 
 <body>
     <header class="header">
-        <h1>scss</h1>
+        <h1>
+            Database
+        </h1>
     </header>
-    <main id="main"></main>
+    <main id="main">
+    </main>
     <script>
         const assignmentList = [
             {
-                title: "Admin Dashboard",
+                title: "1",
                 code: {
                     class: "button",
-                    href: "https://github.com/sitaramoli/react-admin-dashboard",
-                    target: "_blank",
+                    href: "https://github.com/sitaramoli/Outside/tree/main/database/assignment-1",
+                    target: "_blank"
                 },
                 demo: {
                     class: "button",
-                    href: "https://react-admin-dashboard-azure.vercel.app/",
-                    target: "_blank",
-                },
+                    href: "assignment-1/er.png",
+                    target: "_blank"
+                }
             },
             {
-                title: "Mouse Cursor",
+                title: "2",
                 code: {
                     class: "button",
-                    href: "https://github.com/sitaramoli/custom-hooks",
-                    target: "_blank",
+                    href: "https://github.com/sitaramoli/Outside/tree/main/database/assignment-2",
+                    target: "_blank"
                 },
                 demo: {
                     class: "button",
-                    href: "https://custom-hooks-three.vercel.app/",
-                    target: "_blank",
-                },
+                    href: "assignment-2/er.png",
+                    target: "_blank"
+                }
             }
-
         ];
 
         let main = document.getElementById("main");
@@ -114,22 +116,22 @@
             title.appendChild(titleText);
             card.appendChild(title);
 
+
+
             let code = document.createElement("a");
-            Object.keys(element.code).forEach((key) =>
-                code.setAttribute(key, element.code[key])
-            );
+            Object.keys(element.code).forEach(key => code.setAttribute(key, element.code[key]));
             card.appendChild(code);
             let codeText = document.createTextNode("Code");
             code.appendChild(codeText);
 
             let demo = document.createElement("a");
-            Object.keys(element.code).forEach((key) =>
-                demo.setAttribute(key, element.demo[key])
-            );
+            Object.keys(element.code).forEach(key => demo.setAttribute(key, element.demo[key]));
             card.appendChild(demo);
             let demoText = document.createTextNode("Demo");
             demo.appendChild(demoText);
+
         }
+
     </script>
 </body>
 

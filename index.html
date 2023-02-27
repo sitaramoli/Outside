@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,11 @@
     <title>Outside Internship</title>
 
     <style>
-        *{
+        * {
             box-sizing: border-box;
         }
-        #main{
+
+        #main {
             display: flex;
             flex-direction: column;
             padding: 30px;
@@ -18,7 +20,8 @@
             gap: 2rem;
 
         }
-        .profile{
+
+        .profile {
             display: block;
             max-width: 100px;
             max-height: 100px;
@@ -28,24 +31,27 @@
             transition: all .2s;
 
         }
-        .profile:active{
+
+        .profile:active {
             box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.35);
             transform: translateY(5px);
         }
-        .profile img{
+
+        .profile img {
             width: 100%;
             height: auto;
 
         }
-        .card-container{
+
+        .card-container {
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
             align-items: center;
             justify-content: center;
         }
-        
-        .card{
+
+        .card {
             position: relative;
             height: 150px;
             width: 150px;
@@ -53,7 +59,7 @@
             text-decoration: none;
             background-color: #f0eded;
             border-radius: 1rem;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35) ;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35);
             padding: 2rem;
             min-width: 6rem;
             transition: all .2s;
@@ -61,32 +67,45 @@
             background-size: contain;
             background-repeat: no-repeat;
         }
-        .card-figma{
+
+        .card-figma {
             background-image: url("images/figma.png");
         }
-        .card-html{
+
+        .card-html {
             background-image: url("images/html.png");
         }
-        .card-css{
+
+        .card-css {
             background-image: url("images/css.png");
         }
-        .card-bootstrap{
+
+        .card-bootstrap {
             background-image: url("images/bootstrap.png");
         }
-        .card-scss{
+
+        .card-scss {
             background-image: url("images/scss.png");
         }
-        .card-js{
+
+        .card-js {
             background-image: url("images/js.png");
         }
-        .card-react{
+
+        .card-react {
             background-image: url("images/react.png");
         }
-        .card:active{
+
+        .card-database {
+            background-image: url("images/database.png");
+        }
+
+        .card:active {
             box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.35);
             transform: translateY(5px);
         }
-        .overlay{
+
+        .overlay {
             position: absolute;
             border-radius: 1rem;
             top: 0;
@@ -102,14 +121,14 @@
             align-items: center;
             transition: all .2s linear;
         }
-        .overlay:hover{
-            color: #fff;
-            background-color:  rgba(0, 0, 0, .6);
-        }
-        
 
+        .overlay:hover {
+            color: #fff;
+            background-color: rgba(0, 0, 0, .6);
+        }
     </style>
 </head>
+
 <body>
     <main id="main">
     </main>
@@ -117,74 +136,80 @@
     <script>
         const courses = [
             {
-                class:"card card-figma",
+                class: "card card-figma",
                 name: "Figma",
                 href: "figma/",
-                target:"_blank"
+                target: "_blank"
 
             },
             {
-                class:"card card-html",
+                class: "card card-html",
                 name: "HTML",
                 href: "html/",
-                target:"_blank"
+                target: "_blank"
 
             },
             {
-                class:"card card-css",
+                class: "card card-css",
                 name: "CSS",
                 href: "css/",
-                target:"_blank"
+                target: "_blank"
 
             },
             {
-                class:"card card-bootstrap",
+                class: "card card-bootstrap",
                 name: "Bootstrap",
                 href: "bootstrap/",
-                target:"_blank"
+                target: "_blank"
 
             },
             {
-                class:"card card-scss",
+                class: "card card-scss",
                 name: "SCSS",
                 href: "scss/",
-                target:"_blank"
+                target: "_blank"
 
             },
             {
-                class:"card card-js",
+                class: "card card-js",
                 name: "Javascript",
                 href: "js/",
-                target:"_blank"
+                target: "_blank"
             },
             {
-                class:"card card-react",
+                class: "card card-react",
                 name: "React",
                 href: "react/",
-                target:"_blank"
+                target: "_blank"
+            },
+            {
+                class: "card card-database",
+                name: "Database",
+                href: "database/",
+                target: "_blank"
             }
         ];
         const main = document.getElementById("main");
 
 
         const profileBtn = document.createElement("a");
-        profileBtn.setAttribute("class","profile");
-        profileBtn.setAttribute("href","profile.html");
+        profileBtn.setAttribute("class", "profile");
+        profileBtn.setAttribute("href", "profile.html");
         const avatar = document.createElement("img");
-        avatar.setAttribute("src","./images/avatar.jpg");
+        avatar.setAttribute("src", "./images/avatar.jpg");
         profileBtn.appendChild(avatar);
         main.appendChild(profileBtn);
 
         const cardContainer = document.createElement("div");
-        cardContainer.setAttribute("class","card-container");
+        cardContainer.setAttribute("class", "card-container");
         main.appendChild(cardContainer);
 
-        for(let i=0; i<courses.length; i++){
+        for (let i = 0; i < courses.length; i++) {
             let card = document.createElement("a");
-            Object.keys(courses[i]).forEach(key=>card.setAttribute(key,courses[i][key]));
+            Object.keys(courses[i]).forEach(key => card.setAttribute(key, courses[i][key]));
             cardContainer.appendChild(card);
             let overlay = document.createElement("div");
-            overlay.setAttribute("class","overlay");
+            overlay.setAttribute("class", "overlay");
             let courseName = document.createTextNode(courses[i].name);
             overlay.appendChild(courseName);
             card.appendChild(overlay);
@@ -192,4 +217,5 @@
 
     </script>
 </body>
+
 </html>
