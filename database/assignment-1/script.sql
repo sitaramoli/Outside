@@ -112,3 +112,28 @@ VALUES
     ('1', '200', TRUE);
 
 -- select post by category or tag
+SELECT
+    posts.title,
+    posts.content,
+    categories.name
+FROM
+    posts
+    INNER JOIN categories ON categories.name = 'category1';
+
+SELECT
+    posts.title,
+    posts.content,
+    tags.name
+FROM
+    posts
+    INNER JOIN tags ON tags.name = 'tag1';
+
+-- select featured posts
+SELECT
+    posts.title,
+    posts.content
+FROM
+    posts
+    INNER JOIN post_metadata ON post_metadata.featured = TRUE;
+
+-- retrieving popular posts
