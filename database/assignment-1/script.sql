@@ -109,7 +109,7 @@ VALUES
 INSERT INTO
     post_metadata(post_id, views, featured)
 VALUES
-    ('1', '200', TRUE);
+    ('1', '210', TRUE);
 
 -- select post by category or tag
 SELECT
@@ -131,9 +131,24 @@ FROM
 -- select featured posts
 SELECT
     posts.title,
-    posts.content
+    posts.content,
 FROM
     posts
     INNER JOIN post_metadata ON post_metadata.featured = TRUE;
 
 -- retrieving popular posts
+SELECT
+    posts.id,
+    posts.title,
+    posts.content,
+    post_metadata.views
+FROM
+    posts
+    INNER JOIN post_metadata ON post_metadata.post_id = posts.id
+WHERE
+    post_metadata.views = (
+        SELECT
+            MAX(post_metadata.views)
+        FROM
+            post_metadata
+    );
