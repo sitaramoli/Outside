@@ -1,0 +1,49 @@
+.login,
+.signup,.edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: #eceaea;
+    padding: 3rem;
+    border-radius: 0.8rem;
+    & div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        & label {
+            font-size: 1.7rem;
+        }
+        & input {
+            padding: 1rem;
+            outline: none;
+            border: 1px solid #504d4d;
+            border-radius: 0.5rem;
+            &::placeholder {
+                color: #7c7a7a;
+            }
+        }
+    }
+    & .button {
+        padding: 1rem;
+        text-align: center;
+        font-size: 1.7rem;
+        border-radius: 0.8rem;
+        background-color: #44a067;
+        border: none;
+        color: #fff;
+    }
+    & p{
+        font-size: 1.7rem;
+        & a{
+            text-decoration: none;
+            font-weight: bold;
+            color: #44a067;
+        }
+    }
+}
