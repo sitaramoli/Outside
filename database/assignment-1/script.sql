@@ -1,4 +1,4 @@
--- Active: 1677603582207@@127.0.0.1@8888@blog_app@public
+-- Active: 1677603582207@@127.0.0.1@8888@blog_app_v2@public
 CREATE TYPE user_role AS ENUM('author', 'admin', 'moderator');
 
 CREATE TABLE users(
@@ -57,10 +57,16 @@ CREATE TABLE comments(
 
 CREATE TABLE metadata(
     id SERIAL PRIMARY KEY,
-    post_id INT NOT NULL UNIQUE,
-    Foreign Key (post_id) REFERENCES posts(id) ON DELETE NO ACTION,
     views INT DEFAULT 0,
     featured BOOLEAN DEFAULT false
+);
+
+CREATE TABLE post_metadata(
+    metadata_id INT NOT NULL UNIQUE,
+    Foreign Key (metadata_id) REFERENCES metadata(id),
+    post_id INT NOT NULL UNIQUE,
+    Foreign Key (post_id) REFERENCES posts(id),
+    PRIMARY KEY (metadata_id, post_id)
 );
 
 -- insert author 
@@ -99,13 +105,19 @@ VALUES
 INSERT INTO
     post_tags(post_id, tag_id)
 VALUES
-    (1, 1);
+    (1, 1),
+    (1, 2);
 
--- create metadata for a post
+-- create metadata for a post1
 INSERT INTO
-    metadata(post_id, featured)
+    metadata(views, featured)
 VALUES
-    (1, true);
+    (DEFAULT, DEFAULT);
+
+INSERT INTO
+    post_metadata(metadata_id, post_id)
+VALUES
+    (1, 1);
 
 -- publish post1
 UPDATE
@@ -115,6 +127,21 @@ SET
 WHERE
     id = 1
     AND status = 'draft';
+
+-- make a post featured
+UPDATE
+    metadata
+set
+    featured = TRUE
+WHERE
+    EXISTS(
+        SELECT
+            *
+        from
+            metadata
+            INNER JOIN post_metadata ON post_metadata.metadata_id = metadata.id
+            AND post_metadata.post_id = 1
+    );
 
 -- add comment/reply
 INSERT INTO
@@ -140,13 +167,20 @@ FROM
 WHERE
     categories.name = 'category1';
 
--- increase views
+-- increase views only if post exists
 UPDATE
     metadata
 set
     views = views + 1
 WHERE
-    post_id = 1;
+    EXISTS(
+        SELECT
+            *
+        from
+            metadata
+            INNER JOIN post_metadata ON post_metadata.metadata_id = metadata.id
+            AND post_metadata.post_id = 1
+    );
 
 -- retrieving featured posts
 SELECT
@@ -158,7 +192,8 @@ SELECT
 FROM
     users
     INNER JOIN posts ON posts.user_id = users.id
-    INNER JOIN metadata ON metadata.post_id = posts.id
+    INNER JOIN post_metadata ON post_metadata.post_id = posts.id
+    INNER JOIN metadata on metadata.id = post_metadata.metadata_id
 WHERE
     metadata.featured = TRUE;
 
@@ -171,7 +206,8 @@ SELECT
 FROM
     users
     INNER JOIN posts ON posts.user_id = users.id
-    INNER JOIN metadata ON metadata.post_id = posts.id
+    INNER JOIN post_metadata ON post_metadata.post_id = posts.id
+    INNER JOIN metadata ON metadata.id = post_metadata.metadata_id
 ORDER BY
     metadata.views DESC
 LIMIT
