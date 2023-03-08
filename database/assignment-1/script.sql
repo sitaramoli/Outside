@@ -1,154 +1,214 @@
--- Active: 1677384415382@@127.0.0.1@8888@blog_app@public
+-- Active: 1677603582207@@127.0.0.1@8888@blog_app_v2@public
 CREATE TYPE user_role AS ENUM('author', 'admin', 'moderator');
 
 CREATE TABLE users(
-    id serial NOT NULL PRIMARY KEY,
-    username VARCHAR(30) NOT NULL UNIQUE,
-    password VARCHAR(20) NOT NULL,
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(30) NOT NULL UNIQUE,
+    password VARCHAR(50) NOT NULL,
     role user_role NOT NULL
 );
 
-CREATE TYPE post_status AS ENUM('draft', 'post');
-
-CREATE TABLE posts(
-    id serial NOT NULL PRIMARY KEY,
-    user_id INT NOT NULL,
-    Foreign Key (user_id) REFERENCES users(id) ON DELETE NO ACTION,
-    title VARCHAR(100) NOT NULL,
-    content TEXT NOT NULL,
-    status post_status NOT NULL,
-    created_at TIMESTAMP DEFAULT NOW()
-);
-
 CREATE TABLE categories(
-    post_id int NOT NULL,
-    Foreign Key (post_id) REFERENCES posts(id) ON DELETE NO ACTION,
-    name VARCHAR(30) NOT NULL UNIQUE,
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL UNIQUE,
     description VARCHAR(100) NOT NULL
 );
 
+CREATE TYPE post_status AS ENUM('draft', 'published');
+
+CREATE TABLE posts(
+    id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL,
+    Foreign Key (user_id) REFERENCES users(id) ON DELETE NO ACTION,
+    title VARCHAR(200) NOT NULL,
+    content TEXT NOT NULL,
+    status post_status NOT NULL,
+    category_id INT NOT NULL,
+    Foreign Key (category_id) REFERENCES categories(id) ON DELETE NO ACTION,
+    created_at TIMESTAMP DEFAULT NOW(),
+    deleted_at TIMESTAMP DEFAULT NOW()
+);
+
 CREATE TABLE tags(
-    post_id int NOT NULL,
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL UNIQUE,
+    description VARCHAR(100) NOT NULL
+);
+
+-- one post can have many tags and one tag can be associated with many posts
+CREATE TABLE post_tags(
+    post_id INT NOT NULL,
     Foreign Key (post_id) REFERENCES posts(id) ON DELETE NO ACTION,
-    name VARCHAR(30) NOT NULL UNIQUE,
-    description VARCHAR (100) NOT NULL
+    tag_id INT NOT NULL,
+    Foreign Key (tag_id) REFERENCES tags(id) ON DELETE NO ACTION,
+    PRIMARY KEY (post_id, tag_id)
 );
 
 CREATE TABLE comments(
-    id SERIAL NOT NULL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     user_id INT NOT NULL,
-    post_id INT NOT NULL,
     Foreign Key (user_id) REFERENCES users(id) ON DELETE NO ACTION,
+    post_id INT NOT NULL,
     Foreign Key (post_id) REFERENCES posts(id) ON DELETE NO ACTION,
     comment TEXT NOT NULL,
+    parent_comment_id INT REFERENCES comments(id) ON DELETE NO ACTION,
     created_at TIMESTAMP DEFAULT NOW()
 );
 
-CREATE TABLE replies(
-    comment_id INT NOT NULL,
-    Foreign Key (comment_id) REFERENCES comments(id) ON DELETE NO ACTION,
-    reply TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT NOW()
+CREATE TABLE metadata(
+    id SERIAL PRIMARY KEY,
+    views INT DEFAULT 0,
+    featured BOOLEAN DEFAULT false
 );
 
 CREATE TABLE post_metadata(
-    post_id INT NOT NULL,
-    Foreign Key (post_id) REFERENCES posts(id) ON DELETE NO ACTION,
-    views INT DEFAULT 0,
-    featured BOOLEAN DEFAULT FALSE
+    metadata_id INT NOT NULL UNIQUE,
+    Foreign Key (metadata_id) REFERENCES metadata(id),
+    post_id INT NOT NULL UNIQUE,
+    Foreign Key (post_id) REFERENCES posts(id),
+    PRIMARY KEY (metadata_id, post_id)
 );
 
--- insert new user
+-- insert author 
 INSERT INTO
-    users(username, password, role)
+    users(email, password, role)
 VALUES
-    ('Baymax', '1234', 'author');
+    ('sita@gmail.com', '1234', 'author');
+
+-- insert admin
+INSERT INTO
+    users(email, password, role)
+VALUES
+    ('ram@gmail.com', '1234', 'admin');
+
+-- create category
+INSERT INTO
+    categories(name, description)
+VALUES
+    ('category1', 'category1 description'),
+    ('category2', 'category2 description');
+
+-- create tags
+INSERT INTO
+    tags(name, description)
+VALUES
+    ('tag1', 'tag1 description'),
+    ('tag2', 'tag2 description');
+
+-- create a new post with draft
+INSERT INTO
+    posts(user_id, title, content, status, category_id)
+VALUES
+    (1, 'post1 title', 'post1 content', 'draft', 1);
+
+-- add tags to a post
+INSERT INTO
+    post_tags(post_id, tag_id)
+VALUES
+    (1, 1),
+    (1, 2);
+
+-- create metadata for a post1
+INSERT INTO
+    metadata(views, featured)
+VALUES
+    (DEFAULT, DEFAULT);
 
 INSERT INTO
-    users(username, password, role)
+    post_metadata(metadata_id, post_id)
 VALUES
-    ('sitaram', '1234', 'admin');
+    (1, 1);
 
-INSERT INTO
-    posts(user_id, title, content, status)
-VALUES
-    (
-        1,
-        'Change password',
-        'describe how to change password',
-        'draft'
-    );
-
+-- publish post1
 UPDATE
     posts
 SET
-    status = 'post'
+    status = 'published'
 WHERE
-    status = 'draft';
+    id = 1
+    AND status = 'draft';
 
+-- make a post featured
+UPDATE
+    metadata
+set
+    featured = TRUE
+WHERE
+    EXISTS(
+        SELECT
+            *
+        from
+            metadata
+            INNER JOIN post_metadata ON post_metadata.metadata_id = metadata.id
+            AND post_metadata.post_id = 1
+    );
+
+-- add comment/reply
 INSERT INTO
     comments(user_id, post_id, comment)
 VALUES
-    (1, 1, 'this is a comment');
+    (2, 1, 'comment1 to a post1 by user2');
 
 INSERT INTO
-    replies(comment_id, reply)
+    comments(user_id, post_id, comment, parent_comment_id)
 VALUES
-    ('1', 'this is a reply');
+    (1, 1, 'reply to comment1 on post1 by user1', 1);
 
-INSERT INTO
-    categories(post_id, name, description)
-VALUES
-    ('1', 'category1', 'this is category 1');
-
-INSERT INTO
-    tags(post_id, name, description)
-VALUES
-    ('1', 'tag1', 'this is tag 1');
-
-INSERT INTO
-    post_metadata(post_id, views, featured)
-VALUES
-    ('1', '210', TRUE);
-
--- select post by category or tag
+-- retrieving posts by category/tag
 SELECT
+    users.email as author,
     posts.title,
     posts.content,
-    categories.name
+    categories.name as category
 FROM
-    posts
-    INNER JOIN categories ON categories.name = 'category1';
+    users
+    INNER JOIN posts ON posts.user_id = users.id
+    INNER JOIN categories ON categories.id = posts.category_id
+WHERE
+    categories.name = 'category1';
 
+-- increase views only if post exists
+UPDATE
+    metadata
+set
+    views = views + 1
+WHERE
+    EXISTS(
+        SELECT
+            *
+        from
+            metadata
+            INNER JOIN post_metadata ON post_metadata.metadata_id = metadata.id
+            AND post_metadata.post_id = 1
+    );
+
+-- retrieving featured posts
 SELECT
+    users.email as author,
     posts.title,
     posts.content,
-    tags.name
+    metadata.views,
+    metadata.featured
 FROM
-    posts
-    INNER JOIN tags ON tags.name = 'tag1';
-
--- select featured posts
-SELECT
-    posts.title,
-    posts.content,
-FROM
-    posts
-    INNER JOIN post_metadata ON post_metadata.featured = TRUE;
+    users
+    INNER JOIN posts ON posts.user_id = users.id
+    INNER JOIN post_metadata ON post_metadata.post_id = posts.id
+    INNER JOIN metadata on metadata.id = post_metadata.metadata_id
+WHERE
+    metadata.featured = TRUE;
 
 -- retrieving popular posts
 SELECT
-    posts.id,
+    users.email as author,
     posts.title,
     posts.content,
-    post_metadata.views
+    metadata.views
 FROM
-    posts
+    users
+    INNER JOIN posts ON posts.user_id = users.id
     INNER JOIN post_metadata ON post_metadata.post_id = posts.id
-WHERE
-    post_metadata.views = (
-        SELECT
-            MAX(post_metadata.views)
-        FROM
-            post_metadata
-    );
+    INNER JOIN metadata ON metadata.id = post_metadata.metadata_id
+ORDER BY
+    metadata.views DESC
+LIMIT
+    10;
