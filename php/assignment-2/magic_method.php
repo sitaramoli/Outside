@@ -19,7 +19,7 @@ class MyClass
     }
     public function __toString()
     {
-        echo "__toString() is called when object is treated as a String <br>";
+        return "__toString() is called when object is treated as a String <br>";
     }
 }
 
