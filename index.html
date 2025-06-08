@@ -21,28 +21,6 @@
 
         }
 
-        .profile {
-            display: block;
-            max-width: 100px;
-            max-height: 100px;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35);
-            transition: all .2s;
-
-        }
-
-        .profile:active {
-            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.35);
-            transform: translateY(5px);
-        }
-
-        .profile img {
-            width: 100%;
-            height: auto;
-
-        }
-
         .card-container {
             display: flex;
             flex-wrap: wrap;
@@ -210,15 +188,6 @@
             }
         ];
         const main = document.getElementById("main");
-
-
-        const profileBtn = document.createElement("a");
-        profileBtn.setAttribute("class", "profile");
-        profileBtn.setAttribute("href", "profile.html");
-        const avatar = document.createElement("img");
-        avatar.setAttribute("src", "./images/avatar.jpg");
-        profileBtn.appendChild(avatar);
-        main.appendChild(profileBtn);
 
         const cardContainer = document.createElement("div");
         cardContainer.setAttribute("class", "card-container");
